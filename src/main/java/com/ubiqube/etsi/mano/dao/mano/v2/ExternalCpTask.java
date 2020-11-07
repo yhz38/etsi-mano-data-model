@@ -16,12 +16,9 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
-import java.util.UUID;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import com.ubiqube.etsi.mano.dao.mano.VnfExtCp;
 
 @Entity
 public class ExternalCpTask extends Task {
@@ -29,8 +26,14 @@ public class ExternalCpTask extends Task {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
+	private VnfExtCp vnfExtCp;
+
+	public VnfExtCp getVnfExtCp() {
+		return vnfExtCp;
+	}
+
+	public void setVnfExtCp(final VnfExtCp vnfExtCp) {
+		this.vnfExtCp = vnfExtCp;
+	}
 
 }
