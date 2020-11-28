@@ -14,31 +14,31 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.v2;
+package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
 
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
-import com.ubiqube.etsi.mano.dao.mano.ChangeType;
-import com.ubiqube.etsi.mano.dao.mano.ToscaEntity;
+import com.ubiqube.etsi.mano.dao.mano.NsSap;
 
-public interface Task extends ToscaEntity, Auditable {
+/**
+ *
+ * @author Olivier Vignaud <ovi@ubiqube.com>
+ *
+ */
+@Entity
+public class SapTask extends NsTask {
 
-	ChangeType getChangeType();
+	/** Serial. */
+	private static final long serialVersionUID = 1L;
 
-	String getAlias();
+	private NsSap sapd;
 
-	@Override
-	String getToscaName();
+	public NsSap getSapd() {
+		return sapd;
+	}
 
-	void setStartDate(LocalDateTime now);
-
-	void setStatus(PlanStatusType started);
-
-	void setEndDate(LocalDateTime now);
-
-	void setVimResourceId(String res);
-
-	String getVimResourceId();
+	public void setSapd(final NsSap sapd) {
+		this.sapd = sapd;
+	}
 
 }

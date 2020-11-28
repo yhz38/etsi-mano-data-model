@@ -14,69 +14,51 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano;
+package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsVirtualLink;
+import com.ubiqube.etsi.mano.dao.mano.NsdInstance;
+import com.ubiqube.etsi.mano.dao.mano.v2.AbstractBlueprint;
 
+/**
+ *
+ * @author Olivier Vignaud <ovi@ubiqube.com>
+ *
+ */
 @Entity
-@EntityListeners(AuditListener.class)
-public class NsInstantiatedVl extends NsInstantiatedBase {
+public class NsBlueprint extends AbstractBlueprint<NsTask> {
+
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id = null;
+	private UUID id;
 
-	private String nsVirtualLinkInstanceId = null;
+	@ManyToOne
+	private NsdInstance nsInstance;
 
-	@ManyToOne(cascade = CascadeType.DETACH)
-	private NsVirtualLink nsVirtualLinkDesc = null;
+	public NsdInstance getNsInstance() {
+		return nsInstance;
+	}
 
-	private UUID vlProfileId = null;
+	public void setNsInstance(final NsdInstance nsInstance) {
+		this.nsInstance = nsInstance;
+	}
 
 	@Override
 	public UUID getId() {
 		return id;
 	}
 
-	@Override
 	public void setId(final UUID id) {
 		this.id = id;
-	}
-
-	public String getNsVirtualLinkInstanceId() {
-		return nsVirtualLinkInstanceId;
-	}
-
-	public void setNsVirtualLinkInstanceId(final String nsVirtualLinkInstanceId) {
-		this.nsVirtualLinkInstanceId = nsVirtualLinkInstanceId;
-	}
-
-	public NsVirtualLink getNsVirtualLinkDesc() {
-		return nsVirtualLinkDesc;
-	}
-
-	public void setNsVirtualLinkDesc(final NsVirtualLink nsVirtualLinkDesc) {
-		this.nsVirtualLinkDesc = nsVirtualLinkDesc;
-	}
-
-	public UUID getVlProfileId() {
-		return vlProfileId;
-	}
-
-	public void setVlProfileId(final UUID vlProfileId) {
-		this.vlProfileId = vlProfileId;
 	}
 
 }

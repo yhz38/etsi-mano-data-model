@@ -14,31 +14,19 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.v2;
+package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
 
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
-import com.ubiqube.etsi.mano.dao.mano.ChangeType;
-import com.ubiqube.etsi.mano.dao.mano.ToscaEntity;
+/**
+ *
+ * @author Olivier Vignaud <ovi@ubiqube.com>
+ *
+ */
+@Entity
+public class NsVirtualLinkTask extends NsTask {
 
-public interface Task extends ToscaEntity, Auditable {
-
-	ChangeType getChangeType();
-
-	String getAlias();
-
-	@Override
-	String getToscaName();
-
-	void setStartDate(LocalDateTime now);
-
-	void setStatus(PlanStatusType started);
-
-	void setEndDate(LocalDateTime now);
-
-	void setVimResourceId(String res);
-
-	String getVimResourceId();
+	/** Serial. */
+	private static final long serialVersionUID = 1L;
 
 }

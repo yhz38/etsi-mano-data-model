@@ -14,36 +14,35 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano;
+package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
-import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsVirtualLink;
+import com.ubiqube.etsi.mano.dao.mano.AuditListener;
+import com.ubiqube.etsi.mano.dao.mano.v2.AbstractTask;
 
+/**
+ * This entity is the root of all NS*Tasks.
+ *
+ * @author Olivier Vignaud <ovi@ubiqube.com>
+ *
+ */
 @Entity
 @EntityListeners(AuditListener.class)
-public class NsInstantiatedVl extends NsInstantiatedBase {
+public class NsTask extends AbstractTask {
+
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id = null;
-
-	private String nsVirtualLinkInstanceId = null;
-
-	@ManyToOne(cascade = CascadeType.DETACH)
-	private NsVirtualLink nsVirtualLinkDesc = null;
-
-	private UUID vlProfileId = null;
+	private UUID id;
 
 	@Override
 	public UUID getId() {
@@ -53,30 +52,6 @@ public class NsInstantiatedVl extends NsInstantiatedBase {
 	@Override
 	public void setId(final UUID id) {
 		this.id = id;
-	}
-
-	public String getNsVirtualLinkInstanceId() {
-		return nsVirtualLinkInstanceId;
-	}
-
-	public void setNsVirtualLinkInstanceId(final String nsVirtualLinkInstanceId) {
-		this.nsVirtualLinkInstanceId = nsVirtualLinkInstanceId;
-	}
-
-	public NsVirtualLink getNsVirtualLinkDesc() {
-		return nsVirtualLinkDesc;
-	}
-
-	public void setNsVirtualLinkDesc(final NsVirtualLink nsVirtualLinkDesc) {
-		this.nsVirtualLinkDesc = nsVirtualLinkDesc;
-	}
-
-	public UUID getVlProfileId() {
-		return vlProfileId;
-	}
-
-	public void setVlProfileId(final UUID vlProfileId) {
-		this.vlProfileId = vlProfileId;
 	}
 
 }

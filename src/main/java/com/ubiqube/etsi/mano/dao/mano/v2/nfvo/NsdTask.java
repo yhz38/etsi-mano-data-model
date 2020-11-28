@@ -14,31 +14,45 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.v2;
+package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
-import java.time.LocalDateTime;
+import java.util.UUID;
 
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
-import com.ubiqube.etsi.mano.dao.mano.ChangeType;
-import com.ubiqube.etsi.mano.dao.mano.ToscaEntity;
+import javax.persistence.Entity;
 
-public interface Task extends ToscaEntity, Auditable {
+/**
+ *
+ * @author Olivier Vignaud <ovi@ubiqube.com>
+ *
+ */
+@Entity
+public class NsdTask extends NsTask {
 
-	ChangeType getChangeType();
+	/** Serial. */
+	private static final long serialVersionUID = 1L;
 
-	String getAlias();
+	private UUID nsdId;
 
-	@Override
-	String getToscaName();
+	private UUID nsInstanceId;
 
-	void setStartDate(LocalDateTime now);
+	public UUID getNsdId() {
+		return nsdId;
+	}
 
-	void setStatus(PlanStatusType started);
+	public void setNsdId(final UUID nsdId) {
+		this.nsdId = nsdId;
+	}
 
-	void setEndDate(LocalDateTime now);
+	public UUID getNsInstanceId() {
+		return nsInstanceId;
+	}
 
-	void setVimResourceId(String res);
+	public void setNsInstanceId(final UUID nsInstanceId) {
+		this.nsInstanceId = nsInstanceId;
+	}
 
-	String getVimResourceId();
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }
