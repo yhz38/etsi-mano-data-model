@@ -16,7 +16,10 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 
 import com.ubiqube.etsi.mano.dao.mano.NsSap;
 
@@ -31,6 +34,7 @@ public class SapTask extends NsTask {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private NsSap sapd;
 
 	public NsSap getSapd() {
