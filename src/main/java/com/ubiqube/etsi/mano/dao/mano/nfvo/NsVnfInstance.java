@@ -14,29 +14,47 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
+package com.ubiqube.etsi.mano.dao.mano.nfvo;
+
+import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-/**
- *
- * @author Olivier Vignaud <ovi@ubiqube.com>
- *
- */
+import org.hibernate.search.annotations.Indexed;
+
+import com.ubiqube.etsi.mano.dao.mano.AuditListener;
+
 @Entity
-public class NsVirtualLinkTask extends NsTask {
-
+@Indexed
+@EntityListeners(AuditListener.class)
+public class NsVnfInstance {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	private NsVirtualLink nsVirtualLink;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID id = null;
 
-	public NsVirtualLink getNsVirtualLink() {
-		return nsVirtualLink;
+	private String vnfPkgIds;
+
+	public UUID getId() {
+		return id;
 	}
 
-	public void setNsVirtualLink(final NsVirtualLink nsVirtualLink) {
-		this.nsVirtualLink = nsVirtualLink;
+	public void setId(final UUID id) {
+		this.id = id;
+	}
+
+	public String getVnfPkgIds() {
+		return vnfPkgIds;
+	}
+
+	public void setVnfPkgIds(final String vnfPkgIds) {
+		this.vnfPkgIds = vnfPkgIds;
 	}
 
 }
