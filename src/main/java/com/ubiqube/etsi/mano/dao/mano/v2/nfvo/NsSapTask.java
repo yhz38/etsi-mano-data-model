@@ -14,23 +14,34 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.dto;
+package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
 import java.util.UUID;
 
-import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsSapTask;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-public class NsInstantiatedSap extends NsInstantiatedBase {
+import com.ubiqube.etsi.mano.dao.mano.NsSap;
+
+/**
+ *
+ * @author Olivier Vignaud <ovi@ubiqube.com>
+ *
+ */
+@Entity
+public class NsSapTask extends NsTask {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	private UUID id = null;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID id;
 
-	private String sapInstanceId = null;
-
-	private NsSapTask sapd = null;
-
-	private String sapName = null;
+	@ManyToOne
+	private NsSap nsSap;
 
 	@Override
 	public UUID getId() {
@@ -42,28 +53,12 @@ public class NsInstantiatedSap extends NsInstantiatedBase {
 		this.id = id;
 	}
 
-	public String getSapInstanceId() {
-		return sapInstanceId;
+	public NsSap getNsSap() {
+		return nsSap;
 	}
 
-	public void setSapInstanceId(final String sapInstanceId) {
-		this.sapInstanceId = sapInstanceId;
-	}
-
-	public NsSapTask getSapd() {
-		return sapd;
-	}
-
-	public void setSapd(final NsSapTask sapd) {
-		this.sapd = sapd;
-	}
-
-	public String getSapName() {
-		return sapName;
-	}
-
-	public void setSapName(final String sapName) {
-		this.sapName = sapName;
+	public void setNsSap(final NsSap nsSap) {
+		this.nsSap = nsSap;
 	}
 
 }
