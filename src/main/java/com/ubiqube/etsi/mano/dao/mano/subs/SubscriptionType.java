@@ -26,7 +26,9 @@ public enum SubscriptionType {
 	NSD("NSD"),
 	ALARM("ALARM"),
 	NSLCM("NSLCM"),
-	VNFLCM("VNFLCM");
+	VNFLCM("VNFLCM"),
+	MEOPKG("MEOPKG"),
+	NSDVNF("NSDVNF");
 
 	private String value;
 
