@@ -14,38 +14,27 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mec.lcm;
+package com.ubiqube.etsi.mano.dao.mano;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.Set;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.Instance;
-import com.ubiqube.etsi.mano.dao.mec.pkg.AppPkg;
-
-import lombok.Getter;
-import lombok.Setter;
+import com.ubiqube.etsi.mano.dao.mano.v2.Blueprint;
 
 /**
  *
  * @author Olivier Vignaud <ovi@ubiqube.com>
  *
  */
-@Setter
-@Getter
-@Entity
-@Indexed
-@Table(schema = "mec_meo")
-@EntityListeners(AuditListener.class)
-public class AppInstance extends Instance {
+public interface VimBlueprint<U extends VimTask> extends Blueprint<U> {
 
-	/** Serial. */
-	private static final long serialVersionUID = 1L;
+	void setVimConnections(Set<VimConnectionInformation> vimConnections);
+	//
 
-	@ManyToOne
-	private AppPkg appPkg;
+	void setZoneGroups(Set<BlueZoneGroupInformation> mapAsSet);
+
+	void setZones(Set<ZoneInfoEntity> zones);
+
+	void setGrantsRequestId(String string);
+
+	void setExtManagedVirtualLinks(Set<ExtManagedVirtualLinkDataEntity> extManagedVirtualLinks);
 }

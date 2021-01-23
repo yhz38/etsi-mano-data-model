@@ -14,18 +14,15 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mec.lcm;
+package com.ubiqube.etsi.mano.dao.mec.tasks;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
 import com.ubiqube.etsi.mano.dao.mano.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.Instance;
-import com.ubiqube.etsi.mano.dao.mec.pkg.AppPkg;
+import com.ubiqube.etsi.mano.dao.mano.VnfCompute;
+import com.ubiqube.etsi.mano.dao.mec.lcm.AppTask;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -35,17 +32,20 @@ import lombok.Setter;
  * @author Olivier Vignaud <ovi@ubiqube.com>
  *
  */
+@Entity
 @Setter
 @Getter
-@Entity
-@Indexed
-@Table(schema = "mec_meo")
 @EntityListeners(AuditListener.class)
-public class AppInstance extends Instance {
+public class AppComputeTask extends AppTask {
 
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne
-	private AppPkg appPkg;
+	private VnfCompute vnfCompute;
+
+	private String flavorId;
+
+	private String imageId;
+
 }

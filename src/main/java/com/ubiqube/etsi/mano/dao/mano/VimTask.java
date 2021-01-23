@@ -14,34 +14,20 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.v2;
+package com.ubiqube.etsi.mano.dao.mano;
 
-import java.time.LocalDateTime;
+import com.ubiqube.etsi.mano.dao.mano.v2.Task;
 
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
-import com.ubiqube.etsi.mano.dao.mano.ChangeType;
-import com.ubiqube.etsi.mano.dao.mano.ResourceTypeEnum;
-import com.ubiqube.etsi.mano.dao.mano.ToscaEntity;
+public interface VimTask extends Task {
 
-public interface Task extends ToscaEntity, Auditable {
+	void setVimReservationId(String reservationId);
 
-	ChangeType getChangeType();
+	void setResourceGroupId(String resourceGroupId);
 
-	String getAlias();
+	void setZoneId(String zoneId);
 
-	@Override
-	String getToscaName();
+	void setResourceProviderId(String resourceProviderId);
 
-	void setStartDate(LocalDateTime now);
-
-	void setStatus(PlanStatusType started);
-
-	void setEndDate(LocalDateTime now);
-
-	void setVimResourceId(String res);
-
-	String getVimResourceId();
-
-	ResourceTypeEnum getType();
+	void setVimConnectionId(String vimConnectionId);
 
 }
