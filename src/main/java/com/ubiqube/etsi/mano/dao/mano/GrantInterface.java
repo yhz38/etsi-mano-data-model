@@ -14,40 +14,35 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mec.tasks;
+package com.ubiqube.etsi.mano.dao.mano;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.Set;
 
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.VnfCompute;
-import com.ubiqube.etsi.mano.dao.mec.lcm.AppTask;
-
-import lombok.Getter;
-import lombok.Setter;
+import com.ubiqube.etsi.mano.dao.mano.dto.GrantInformation;
 
 /**
  *
  * @author Olivier Vignaud <ovi@ubiqube.com>
  *
  */
-@Entity
-@Setter
-@Getter
-@Table(schema = "mec_meo")
-@EntityListeners(AuditListener.class)
-public class AppComputeTask extends AppTask {
+public interface GrantInterface {
 
-	/** Serial. */
-	private static final long serialVersionUID = 1L;
+	Set<GrantInformation> getAddResources();
 
-	@ManyToOne
-	private VnfCompute vnfCompute;
+	void setAddResources(final Set<GrantInformation> addResources);
 
-	private String flavorId;
+	Set<GrantInformation> getTempResources();
 
-	private String imageId;
+	void setTempResources(final Set<GrantInformation> tempResources);
+
+	Set<GrantInformation> getRemoveResources();
+
+	void setRemoveResources(final Set<GrantInformation> removeResources);
+
+	Set<GrantInformation> getUpdateResources();
+
+	void setUpdateResources(final Set<GrantInformation> updateResources);
+
+	GrantVimAssetsEntity getVimAssets();
 
 }
