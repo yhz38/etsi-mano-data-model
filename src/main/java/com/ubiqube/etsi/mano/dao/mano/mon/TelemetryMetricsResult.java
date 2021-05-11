@@ -16,54 +16,45 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.mon;
 
-import java.util.UUID;
-
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import com.ubiqube.etsi.mano.dao.mano.Audit;
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
+import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author Olivier Vignaud <ovi@ubiqube.com>
  *
  */
-@Entity
 @Setter
 @Getter
-@EntityListeners(AuditListener.class)
-public class GnocchiTelemetryMetrics {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id = null;
+@ToString
+public class TelemetryMetricsResult {
+	private String masterJobId;
 
 	private String vnfInstanceId;
 
 	private String key;
 
-	private String value;
+	private Double value;
 
-	@Embedded
-	private Audit audit;
+	private Date timestamp;
 
-	public GnocchiTelemetryMetrics() {
+	private boolean status;
+
+	public TelemetryMetricsResult() {
 		// Nothing.
 	}
 
-	public GnocchiTelemetryMetrics(final String vnfInstanceId, final String key, final String value) {
+	public TelemetryMetricsResult(final String masterJobId, final String vnfInstanceId, final String key, final Double value, final Date timestamp, final boolean status) {
 		super();
+		this.masterJobId = masterJobId;
 		this.vnfInstanceId = vnfInstanceId;
 		this.key = key;
 		this.value = value;
+		this.timestamp = timestamp;
+		this.status = status;
 	}
 
 }
