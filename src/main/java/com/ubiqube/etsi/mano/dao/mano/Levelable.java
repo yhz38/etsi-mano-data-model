@@ -14,35 +14,22 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.nslcm.scale;
+package com.ubiqube.etsi.mano.dao.mano;
 
 import java.util.Set;
-import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import lombok.NoArgsConstructor;
+import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsScaleLevel;
+import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsScleStepMapping;
 
 /**
  *
  * @author Olivier Vignaud <ovi@ubiqube.com>
  *
  */
-@Entity
-@NoArgsConstructor
-public class VnfScalingStepMapping extends NsVnfScalingStepMapping {
+public interface Levelable<U extends NsScleStepMapping, V extends NsScaleLevel> {
 
-	/** Serial. */
-	private static final long serialVersionUID = 1L;
+	Set<V> getLevelMapping();
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
+	Set<U> getStepMapping();
 
-	public VnfScalingStepMapping(final Set<StepMapping> stepMapping, final String aspectId) {
-		super(stepMapping, aspectId);
-	}
 }

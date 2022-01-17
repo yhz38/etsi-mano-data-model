@@ -16,42 +16,14 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.nslcm.scale;
 
-import java.io.Serializable;
-import java.util.UUID;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 /**
  *
  * @author Olivier Vignaud <ovi@ubiqube.com>
  *
  */
-@Getter
-@Setter
-@Entity
-@NoArgsConstructor
-public class NsScalingLevelMapping implements NsScaleLevel, Serializable{
+public interface NsScaleLevel {
 
-	/** Serial. */
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
+	String getAspectId();
 
-	private String name;
-	private String aspectId;
-	private int numberOfInstance;
-	
-	public NsScalingLevelMapping(final String name, final String aspectId, final int numberOfInstance) {
-		this.name = name;
-		this.aspectId = aspectId;
-		this.numberOfInstance = numberOfInstance;
-	}
+	int getNumberOfInstance();
 }
