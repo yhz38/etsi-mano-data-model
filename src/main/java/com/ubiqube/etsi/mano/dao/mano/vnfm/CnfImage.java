@@ -48,4 +48,6 @@ public class CnfImage implements Serializable {
 	private String type;
 
 	private String url;
+
+	private String localPath;
 }
