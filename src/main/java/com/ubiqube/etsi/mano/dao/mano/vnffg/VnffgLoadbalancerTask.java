@@ -14,58 +14,40 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
+package com.ubiqube.etsi.mano.dao.mano.vnffg;
 
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.ubiqube.etsi.mano.dao.mano.NsdPackageVnfPackage;
 import com.ubiqube.etsi.mano.dao.mano.common.ListKeyPair;
-import com.ubiqube.etsi.mano.dao.mano.config.Servers;
+import com.ubiqube.etsi.mano.dao.mano.nsd.NfpDescriptor;
+import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsTask;
 
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  *
- * @author Olivier Vignaud <ovi@ubiqube.com>
+ * @author olivier
  *
  */
+@Entity
 @Getter
 @Setter
-public class NsVnfInstantiateTask extends NsTask {
-
+public class VnffgLoadbalancerTask extends NsTask {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * VNFM to use if any.
-	 */
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-	private Servers server;
+	@OneToOne(cascade = CascadeType.DETACH)
+	private NfpDescriptor instances;
+
+	private boolean remove;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<ExternalPortRecord> externalNetworks = new LinkedHashSet<>();
-
-	private String flavourId;
-
-	private String instantiationLevelId;
-
-	private String localizationLanguage;
-
-	private Set<ListKeyPair> virtualLinks;
-
-	@ElementCollection(fetch = FetchType.EAGER)
-	private Set<String> vlName;
-
-	@OneToOne(fetch = FetchType.EAGER)
-	private NsdPackageVnfPackage vnfPackage;
-
-	private String vnfInstanceName;
+	private Set<ListKeyPair> constituant;
 }
