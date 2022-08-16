@@ -14,52 +14,31 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.vnffg;
+package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import com.ubiqube.etsi.mano.dao.mano.common.ListKeyPair;
-import com.ubiqube.etsi.mano.dao.mano.nsd.Classifier;
-import com.ubiqube.etsi.mano.dao.mano.nsd.VnffgDescriptor;
-import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsTask;
 
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ *
+ * @author Olivier Vignaud <ovi@ubiqube.com>
+ *
+ */
 @Entity
 @Getter
 @Setter
-public class VnffgPostTask extends NsTask {
+public class NsdExtractorTask extends NsTask {
+
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne
-	private Classifier classifier;
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<ListKeyPair> chain;
-
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-	private VnffgDescriptor vnffg;
-
-	private String srcPort;
-
-	private String dstPort;
-
 	@Override
 	public NsTask copy() {
-		final VnffgPostTask task = new VnffgPostTask();
+		final NsdTask task = new NsdTask();
 		super.copy(task);
-		task.setClassifier(classifier);
-		task.setChain(chain);
-		task.setVnffg(vnffg);
-		task.setDstPort(dstPort);
 		return task;
 	}
+
 }
