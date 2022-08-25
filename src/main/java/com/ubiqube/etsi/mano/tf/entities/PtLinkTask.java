@@ -14,40 +14,49 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
+package com.ubiqube.etsi.mano.tf.entities;
 
-import javax.persistence.CascadeType;
+import java.util.UUID;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import com.ubiqube.etsi.mano.dao.mano.config.Servers;
+import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsTask;
 
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  *
- * @author olivier
+ * @author Olivier Vignaud <ovi@ubiqube.com>
  *
  */
-@Entity
 @Getter
 @Setter
-public class NsVnfExtractorTask extends NsTask {
+@Entity
+public class PtLinkTask extends NsTask {
+
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-	private Servers server;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID id;
 
-	private String nsdId;
+	private String leftPortId;
+
+	private String rightPortId;
+
+	private String portTupleName;
 
 	@Override
 	public NsTask copy() {
-		final NsVnfExtractorTask task = new NsVnfExtractorTask();
-		super.copy(task);
-		task.setServer(server);
+		final PtLinkTask task = new PtLinkTask();
+		task.setLeftPortId(leftPortId);
+		task.setRightPortId(rightPortId);
+		task.setPortTupleName(portTupleName);
 		return task;
 	}
 }
