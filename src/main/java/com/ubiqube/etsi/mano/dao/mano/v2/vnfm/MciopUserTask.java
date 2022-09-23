@@ -18,18 +18,14 @@ package com.ubiqube.etsi.mano.dao.mano.v2.vnfm;
 
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import com.ubiqube.etsi.mano.dao.mano.AuditListener;
 import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
-import com.ubiqube.etsi.mano.dao.mano.vnfm.McIops;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -43,7 +39,7 @@ import lombok.Setter;
 @EntityListeners(AuditListener.class)
 @Getter
 @Setter
-public class MciopTask extends VnfTask {
+public class MciopUserTask extends VnfTask {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
@@ -51,20 +47,14 @@ public class MciopTask extends VnfTask {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-	private McIops mciop;
-
 	private String parentVdu;
-
-	private UUID vnfPackageId;
 
 	@Override
 	public VnfTask copy() {
-		final MciopTask t = new MciopTask();
+		final MciopUserTask t = new MciopUserTask();
 		super.copy(t);
-		t.setMciop(mciop);
 		t.setParentVdu(parentVdu);
-		t.setVnfPackageId(vnfPackageId);
 		return t;
 	}
+
 }
