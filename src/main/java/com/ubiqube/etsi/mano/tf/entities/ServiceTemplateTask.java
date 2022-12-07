@@ -51,6 +51,7 @@ public class ServiceTemplateTask extends NsTask {
 	public NsTask copy() {
 		final ServiceTemplateTask task = new ServiceTemplateTask();
 		super.copy(task);
+		task.setInstanceId(instanceId);
 		return task;
 	}
 
