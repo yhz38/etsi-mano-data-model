@@ -29,7 +29,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
 import lombok.Data;
 
 @Data
@@ -60,7 +59,7 @@ public class VipCpInfo implements Serializable {
 	private Map<String, String> metadata;
 
 	/**
-	 * @Since 4.3.1
+	 * @since 4.3.1
 	 */
 	private String vnfdId;
 }

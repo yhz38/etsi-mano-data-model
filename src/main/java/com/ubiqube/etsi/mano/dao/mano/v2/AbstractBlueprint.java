@@ -39,7 +39,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Enum problem {@link https://hibernate.atlassian.net/browse/HHH-15970}@
+ * Enum problem @see
+ * <a href="https://hibernate.atlassian.net/browse/HHH-15970">see</a>
  *
  * @author olivier
  *

@@ -19,6 +19,8 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.io.Serializable;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.grant.SnapshotResourceDefinitionEntity;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -26,9 +28,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-
-import com.ubiqube.etsi.mano.dao.mano.grant.SnapshotResourceDefinitionEntity;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -88,7 +87,7 @@ public class GrantInformationExt implements BaseEntity, Serializable {
 	 * by "resourceTemplateId") and another one exposing a VIP CP instance (based on
 	 * a VnfExtCpd referenced by this attribute). Shall be absent otherwise.
 	 *
-	 * @Since 3.5.1
+	 * @since 3.5.1
 	 */
 	private String secondaryResourceTemplateId;
 
@@ -133,7 +132,7 @@ public class GrantInformationExt implements BaseEntity, Serializable {
 	private String reservationId;
 
 	/**
-	 * From ResourceHandle & GrantInfo.
+	 * From ResourceHandle &amp; GrantInfo.
 	 *
 	 * Identifier of the VIM connection to manage the resource. This attribute shall
 	 * only be supported and present if VNF-related resource management in direct
@@ -143,7 +142,7 @@ public class GrantInformationExt implements BaseEntity, Serializable {
 	 */
 	private String vimConnectionId;
 	/**
-	 * From ResourceHandle & GrantInfo.
+	 * From ResourceHandle &amp; GrantInfo.
 	 *
 	 * Identifier of the entity responsible for the management of the resource. This
 	 * attribute shall only be supported and present when VNF-related resource
@@ -203,13 +202,13 @@ public class GrantInformationExt implements BaseEntity, Serializable {
 	private SnapshotResourceDefinitionEntity snapshotResDef;
 
 	/**
-	 * @Since 4.3.1
+	 * @since 4.3.1
 	 */
 	@OneToOne
 	private AdditionalResourceInfo vimLevelAdditionalResourceInfo;
 
 	/**
-	 * @Since 4.3.1
+	 * @since 4.3.1
 	 */
 	private String containerNamespace;
 

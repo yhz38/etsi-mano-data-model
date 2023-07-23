@@ -72,7 +72,7 @@ public class ExtVirtualLinkInfoEntity implements BaseEntity, Auditable {
 	 * Allows the API consumer to read the current CP configuration information for
 	 * the connection of external CPs to the external virtual link.
 	 *
-	 * @Since 3.3.1
+	 * @since 3.3.1
 	 */
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private Set<VnfExtCpDataEntity> currentVnfExtCpData = new LinkedHashSet<>();

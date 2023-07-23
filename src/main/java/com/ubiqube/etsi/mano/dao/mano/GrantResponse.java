@@ -23,6 +23,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
+import com.ubiqube.etsi.mano.dao.mano.grant.PlacementConstraint;
+import com.ubiqube.etsi.mano.dao.mano.grant.VimConstraint;
+import com.ubiqube.etsi.mano.utils.ToStringUtil;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
@@ -36,12 +41,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.Valid;
-
-import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
-import com.ubiqube.etsi.mano.dao.mano.grant.PlacementConstraint;
-import com.ubiqube.etsi.mano.dao.mano.grant.VimConstraint;
-import com.ubiqube.etsi.mano.utils.ToStringUtil;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -79,7 +78,7 @@ public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
 	 * be included if the operation changes the current VNF Package and shall be
 	 * absent otherwise.
 	 *
-	 * @Since 3.3.1
+	 * @since 3.3.1
 	 */
 	private String dstVnfdId;
 
@@ -192,7 +191,7 @@ public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
 	private String storageReservationId;
 
 	/**
-	 * From GrantRequest & Grant.
+	 * From GrantRequest &amp; Grant.
 	 *
 	 * List of resource definitions in the VNFD for resources to be added by the LCM
 	 * operation which is related to this grant request, with one entry per
@@ -203,7 +202,7 @@ public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
 	private Set<GrantInformationExt> addResources = new LinkedHashSet<>();
 
 	/**
-	 * From GrantRequest & Grant.
+	 * From GrantRequest &amp; Grant.
 	 *
 	 * List of resource definitions in the VNFD for resources to be temporarily
 	 * instantiated during the runtime of the LCM operation which is related to this
@@ -214,7 +213,7 @@ public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
 	private Set<GrantInformationExt> tempResources = new LinkedHashSet<>();
 
 	/**
-	 * From GrantRequest & Grant.
+	 * From GrantRequest &amp; Grant.
 	 *
 	 * Provides the definitions of resources to be removed by the LCM operation
 	 * which is related to this grant request, with one entry per resource.
@@ -224,7 +223,7 @@ public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
 	private Set<GrantInformationExt> removeResources = new LinkedHashSet<>();
 
 	/**
-	 * From GrantRequest & Grant.
+	 * From GrantRequest &amp; Grant.
 	 *
 	 * Provides the definitions of resources to be modified by the LCM operation
 	 * which is related to this grant request, with one entry per resource.
@@ -265,7 +264,7 @@ public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
 	private Set<ExtManagedVirtualLinkDataEntity> extManagedVirtualLinks = new LinkedHashSet<>();
 
 	/**
-	 * From GrantRequest & Grant.
+	 * From GrantRequest &amp; Grant.
 	 *
 	 * Additional parameters passed by the VNFM, specific to the VNF and the LCM
 	 * operation.

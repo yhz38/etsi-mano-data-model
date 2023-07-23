@@ -300,7 +300,7 @@ public class VnfPackage implements PackageBase, Auditable {
 	 * virtual connection point allowing the access to a number of VNFC instances
 	 * (based on their respective VDUs).
 	 *
-	 * @Since 4.2.1
+	 * @since 4.2.1
 	 */
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<VirtualCp> virtualCp;

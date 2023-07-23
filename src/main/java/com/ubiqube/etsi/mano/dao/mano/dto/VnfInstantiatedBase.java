@@ -113,7 +113,7 @@ public class VnfInstantiatedBase implements Auditable, BaseEntity {
 	private String toscaName;
 
 	private Map<String, String> metadata = new HashMap<>();
-	// @Since 2.7.1
+	// @since 2.7.1
 	private String resourceDefinitionId;
 
 	@Embedded

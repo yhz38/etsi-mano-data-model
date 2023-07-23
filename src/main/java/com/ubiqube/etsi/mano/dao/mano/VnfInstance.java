@@ -72,7 +72,7 @@ public class VnfInstance extends Instance {
 	private Set<ExtCpInfo> extCpInfo;
 
 	/**
-	 * @Since 4.3.1
+	 * @since 4.3.1
 	 */
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<VersionDependency> versionDependency;
