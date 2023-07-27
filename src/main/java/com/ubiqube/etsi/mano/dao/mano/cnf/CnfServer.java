@@ -19,13 +19,12 @@ package com.ubiqube.etsi.mano.dao.mano.cnf;
 import java.io.Serializable;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.vnfi.CnfInformations;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-
-import com.ubiqube.etsi.mano.dao.mano.vnfi.CnfInformations;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -48,7 +47,7 @@ public class CnfServer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Vim ID, same as vimId in {@see VimConnectionInformation}.
+	 * Vim ID, same as vimId in {@link} VimConnectionInformation}.
 	 */
 	@Id
 	@NotNull
