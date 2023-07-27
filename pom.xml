@@ -23,10 +23,6 @@
 			<url>http://nexus.ubiqube.com/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
-	<properties>
-		<version.event-api>3.0.0</version.event-api>
-		<version.mano-fluxrest>3.0.0</version.mano-fluxrest>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
