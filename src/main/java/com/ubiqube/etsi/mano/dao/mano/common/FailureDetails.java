@@ -20,15 +20,16 @@ import java.io.Serializable;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.UnknownHostException;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Embeddable;
+import java.util.function.Function;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ubiqube.etsi.mano.utils.UriConverter;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class FailureDetails implements Serializable {
@@ -51,6 +52,11 @@ public class FailureDetails implements Serializable {
 	@Convert(converter = UriConverter.class)
 	private URI instance;
 
+	private final static Function<String, String> CUT = text -> text.codePoints()
+			.limit(500)
+			.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+			.toString();
+
 	public FailureDetails() {
 		// Nothing.
 	}
@@ -62,7 +68,7 @@ public class FailureDetails implements Serializable {
 			LOG.warn("", e);
 		}
 		status = _status;
-		detail = _detail;
+		detail = CUT.apply(_detail);
 	}
 
 	public URI getType() {
@@ -94,7 +100,7 @@ public class FailureDetails implements Serializable {
 	}
 
 	public void setDetail(final String detail) {
-		this.detail = detail;
+		this.detail = CUT.apply(detail);
 	}
 
 	public URI getInstance() {
