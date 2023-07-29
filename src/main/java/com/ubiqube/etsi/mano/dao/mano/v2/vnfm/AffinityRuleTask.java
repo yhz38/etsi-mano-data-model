@@ -16,16 +16,15 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2.vnfm;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToOne;
-
 import com.ubiqube.etsi.mano.dao.mano.AffinityRule;
 import com.ubiqube.etsi.mano.dao.mano.AuditListener;
 import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,7 +41,7 @@ public class AffinityRuleTask extends VnfTask {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private AffinityRule affinityRule;
 
 	@Override
