@@ -26,7 +26,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,7 +46,7 @@ public class NsVnfInstantiateTask extends NsTask {
 	/**
 	 * VNFM to use if any.
 	 */
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
 	private Servers server;
 
 	private String flavourId;
@@ -55,7 +55,7 @@ public class NsVnfInstantiateTask extends NsTask {
 
 	private String localizationLanguage;
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
 	private NsdVnfPackageCopy param;
 
 	private String vnfInstanceName;

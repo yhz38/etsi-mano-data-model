@@ -30,7 +30,7 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -54,7 +54,7 @@ public class NsdTask extends NsTask {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> virtualLinks;
 
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private Servers server;
 
 	private String flavourId;
@@ -69,7 +69,7 @@ public class NsdTask extends NsTask {
 
 	private String localizationLanguage;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	private NsdPackageNsdPackage nsdParam;
 
 	public NsdTask() {

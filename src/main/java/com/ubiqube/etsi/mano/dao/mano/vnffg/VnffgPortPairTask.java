@@ -24,7 +24,7 @@ import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsTask;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,14 +42,14 @@ public class VnffgPortPairTask extends NsTask {
 
 	private String vnfAlias;
 
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private NsdPackageVnfPackage vnf;
 
 	private int rank;
 
 	private String vnfToscaName;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	private CpPair cpPair;
 
 	public VnffgPortPairTask() {

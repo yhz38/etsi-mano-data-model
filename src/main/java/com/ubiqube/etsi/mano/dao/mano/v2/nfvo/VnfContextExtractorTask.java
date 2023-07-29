@@ -23,7 +23,7 @@ import com.ubiqube.etsi.mano.dao.mano.config.Servers;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,10 +43,10 @@ public class VnfContextExtractorTask extends NsTask {
 	/**
 	 * VNFM to use if any.
 	 */
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
 	private Servers server;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	private NsdPackage nsdPackage;
 
 	private String vnfdId;

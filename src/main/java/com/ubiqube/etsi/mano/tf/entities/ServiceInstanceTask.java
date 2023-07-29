@@ -24,7 +24,7 @@ import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsTask;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,7 +42,7 @@ public class ServiceInstanceTask extends NsTask {
 
 	private String serviceTemplateId;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	private CpPair cpPorts;
 
 	private UUID instanceId;

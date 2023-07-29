@@ -27,6 +27,7 @@ import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsTask;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Getter;
@@ -45,7 +46,7 @@ public class VnffgPostTask extends NsTask {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<ListKeyPair> chain;
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
 	private VnffgDescriptor vnffg;
 
 	private String srcPort;
