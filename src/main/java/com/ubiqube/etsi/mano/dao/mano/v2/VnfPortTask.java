@@ -44,7 +44,7 @@ public class VnfPortTask extends VnfTask {
 	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private ExtManagedVirtualLinkDataEntity external;
 
-	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private ComputeTask compute;
 
 	@Override
