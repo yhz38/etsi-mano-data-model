@@ -52,10 +52,15 @@ public class FailureDetails implements Serializable {
 	@Convert(converter = UriConverter.class)
 	private URI instance;
 
-	private final static Function<String, String> CUT = text -> text.codePoints()
-			.limit(500)
-			.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-			.toString();
+	private static final Function<String, String> CUT = text -> {
+		if (null == text) {
+			return null;
+		}
+		return text.codePoints()
+				.limit(500)
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+				.toString();
+	};
 
 	public FailureDetails() {
 		// Nothing.
