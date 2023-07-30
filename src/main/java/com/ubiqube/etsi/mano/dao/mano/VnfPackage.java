@@ -133,11 +133,11 @@ public class VnfPackage implements PackageBase, Auditable {
 	private String defaultLocalizationLanguage;
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	private Set<String> localizationLanguages;
+	private Set<String> localizationLanguages = new LinkedHashSet<>();
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@OrderColumn
-	private Set<ListKeyPair> virtualLinks;
+	private Set<ListKeyPair> virtualLinks = new LinkedHashSet<>();
 
 	@Embedded
 	@IndexedEmbedded
@@ -147,7 +147,7 @@ public class VnfPackage implements PackageBase, Auditable {
 	@Fetch(FetchMode.SELECT)
 	@IndexedEmbedded
 	@IndexingDependency(reindexOnUpdate = ReindexOnUpdate.SHALLOW)
-	private Set<AdditionalArtifact> additionalArtifacts;
+	private Set<AdditionalArtifact> additionalArtifacts = new LinkedHashSet<>();
 
 	@Enumerated(EnumType.STRING)
 	@FullTextField
