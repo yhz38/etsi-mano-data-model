@@ -24,6 +24,7 @@ import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.mano.pkg.ConnectionPoint;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -58,6 +59,7 @@ public class VnfExtCp extends ConnectionPoint implements Serializable, ToscaEnti
 
 	private String state;
 
+	@Nullable
 	private String externalVirtualLink;
 
 	private String internalVirtualLink;
@@ -81,7 +83,7 @@ public class VnfExtCp extends ConnectionPoint implements Serializable, ToscaEnti
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		final int result = super.hashCode();
 		return (prime * result) + Objects.hash(computeNode, externalVirtualLink, id, internalVirtualLink, securityGroup, state, toscaId, toscaName, virtualNetworkInterfaceRequirements);
 	}
 
