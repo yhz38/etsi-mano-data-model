@@ -19,10 +19,8 @@ package com.ubiqube.etsi.mano.dao.mano.v2;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
-import org.hibernate.type.SqlTypes;
 
 import com.ubiqube.etsi.mano.dao.mano.Audit;
 import com.ubiqube.etsi.mano.dao.mano.ChangeType;
@@ -82,7 +80,10 @@ public abstract class AbstractTask implements VimTask {
 	private PlanStatusType status;
 	@FullTextField
 	@Column(length = 5000)
-	@JdbcTypeCode(SqlTypes.BLOB)
+	/**
+	 * It should be a BLOB due to the size, but it pose a lot of problem with
+	 * postgresql.
+	 */
 	private String vimResourceId;
 
 	private String vimConnectionId;
