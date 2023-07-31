@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:postgresql:///test?TC_DAEMON=true
+    type: org.springframework.jdbc.datasource.SimpleDriverDataSource
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect

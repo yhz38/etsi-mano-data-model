@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:mariadb:///test?TC_DAEMON=true
+    type: org.springframework.jdbc.datasource.SimpleDriverDataSource
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        globally_quoted_identifiers: true
