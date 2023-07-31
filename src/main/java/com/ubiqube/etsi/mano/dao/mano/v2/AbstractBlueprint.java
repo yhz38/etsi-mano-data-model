@@ -28,7 +28,6 @@ import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
 import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -62,13 +61,11 @@ public abstract class AbstractBlueprint<U extends Task, V extends Instance> impl
 	@Embedded
 	private Audit audit;
 
-	@Column(columnDefinition = "varchar(255)")
 	@Enumerated(EnumType.STRING)
 	private PlanOperationType operation;
 
 	private OffsetDateTime stateEnteredTime;
 
-	@Column(columnDefinition = "varchar(255)")
 	@Enumerated(EnumType.STRING)
 	private OperationStatusType operationStatus;
 
@@ -78,7 +75,6 @@ public abstract class AbstractBlueprint<U extends Task, V extends Instance> impl
 
 	public abstract void setTasks(final Set<U> tasks);
 
-	@Column(columnDefinition = "varchar(255)")
 	@Enumerated(EnumType.STRING)
 	private CancelModeTypeEnum cancelMode;
 
