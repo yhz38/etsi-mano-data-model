@@ -63,6 +63,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.OrderColumn;
+import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 import lombok.Getter;
 import lombok.Setter;
@@ -101,6 +102,7 @@ public class VnfPackage implements PackageBase, Auditable {
 	 *
 	 * @since 4.3.1
 	 */
+	@FullTextField
 	private String vnfdExtInvariantId;
 
 	@FullTextField
@@ -118,6 +120,7 @@ public class VnfPackage implements PackageBase, Auditable {
 	@FullTextField
 	private String flavorId;
 
+	@FullTextField
 	private String flavourDescription;
 
 	/**
@@ -128,8 +131,10 @@ public class VnfPackage implements PackageBase, Auditable {
 	@FullTextField
 	private String descriptorVersion;
 
+	@FullTextField
 	private String productInfoDescription;
 
+	@FullTextField
 	private String defaultLocalizationLanguage;
 
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -318,6 +323,9 @@ public class VnfPackage implements PackageBase, Auditable {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Attributes> attributes;
+
+	@Transient
+	private List<AttributeAssignements> overloadedAttribute;
 
 	@Version
 	private long version;
