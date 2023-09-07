@@ -16,6 +16,8 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
+import java.util.Set;
+
 import com.ubiqube.etsi.mano.dao.mano.ExtManagedVirtualLinkDataEntity;
 import com.ubiqube.etsi.mano.dao.mano.VnfLinkPort;
 
@@ -44,8 +46,9 @@ public class VnfPortTask extends VnfTask {
 	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private ExtManagedVirtualLinkDataEntity external;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private ComputeTask compute;
+	private Set<String> ips;
+
+	private String macAddress;
 
 	@Override
 	public VnfTask copy() {
@@ -53,7 +56,8 @@ public class VnfPortTask extends VnfTask {
 		super.copy(t);
 		t.setVnfLinkPort(vnfLinkPort);
 		t.setExternal(external);
-		t.setCompute(compute);
+		t.setIps(ips);
+		t.setMacAddress(macAddress);
 		return t;
 	}
 }
