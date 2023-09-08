@@ -16,11 +16,11 @@
  */
 package com.ubiqube.etsi.mano.dao.mano;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-
 import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
 
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,6 +40,7 @@ public class SubNetworkTask extends VnfTask {
 	@Embedded
 	private L3Data l3Data;
 
+	@ManyToOne
 	private IpPool ipPool;
 
 	private String parentName;
