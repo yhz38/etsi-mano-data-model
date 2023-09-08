@@ -21,6 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -31,10 +34,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -61,7 +60,7 @@ public class IpOverEthernetAddressInfoEntity implements Serializable {
 
 	@Enumerated(EnumType.STRING)
 	private TypeEnum type;
-
+	// Is it used ?
 	private String addresses;
 	// 3.3.1
 	private String segmentationId;

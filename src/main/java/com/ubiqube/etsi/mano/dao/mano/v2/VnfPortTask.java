@@ -25,6 +25,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,7 +47,8 @@ public class VnfPortTask extends VnfTask {
 	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private ExtManagedVirtualLinkDataEntity external;
 
-	private Set<String> ips;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<IpSubnet> ipSubnet;
 
 	private String macAddress;
 
@@ -56,7 +58,7 @@ public class VnfPortTask extends VnfTask {
 		super.copy(t);
 		t.setVnfLinkPort(vnfLinkPort);
 		t.setExternal(external);
-		t.setIps(ips);
+		t.setIpSubnet(ipSubnet);
 		t.setMacAddress(macAddress);
 		return t;
 	}
