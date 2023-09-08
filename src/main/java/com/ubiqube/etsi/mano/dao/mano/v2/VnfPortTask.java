@@ -16,6 +16,7 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.ubiqube.etsi.mano.dao.mano.ExtManagedVirtualLinkDataEntity;
@@ -48,7 +49,7 @@ public class VnfPortTask extends VnfTask {
 	private ExtManagedVirtualLinkDataEntity external;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<IpSubnet> ipSubnet;
+	private Set<IpSubnet> ipSubnet = new LinkedHashSet<>();
 
 	private String macAddress;
 
