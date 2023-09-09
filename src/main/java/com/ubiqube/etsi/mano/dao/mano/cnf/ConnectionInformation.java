@@ -22,14 +22,14 @@ import java.util.UUID;
 
 import org.hibernate.search.mapper.pojo.bridge.builtin.annotation.GeoPointBinding;
 
-import com.ubiqube.etsi.mano.dao.mano.Audit;
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
-import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.mano.common.GeoPoint;
 import com.ubiqube.etsi.mano.dao.mano.config.Servers;
-import com.ubiqube.etsi.mano.dao.mano.v2.PlanStatusType;
-import com.ubiqube.etsi.mano.service.rest.model.AuthentificationInformations;
+import com.ubiqube.etsi.mano.dao.mano.vim.PlanStatusType;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
+import com.ubiqube.etsi.mano.service.auth.model.AuthentificationInformations;
 import com.ubiqube.etsi.mano.utils.ToStringUtil;
 
 import jakarta.annotation.Nonnull;

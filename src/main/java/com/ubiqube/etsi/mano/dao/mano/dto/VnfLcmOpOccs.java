@@ -21,9 +21,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import com.ubiqube.etsi.mano.dao.mano.Audit;
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
-import com.ubiqube.etsi.mano.dao.mano.BaseEntity;
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
+import com.ubiqube.etsi.mano.dao.base.BaseEntity;
 import com.ubiqube.etsi.mano.dao.mano.CancelModeTypeEnum;
 import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkInfoEntity;
 import com.ubiqube.etsi.mano.dao.mano.InstantiationStatusType;
@@ -31,7 +31,7 @@ import com.ubiqube.etsi.mano.dao.mano.NsdChangeType;
 import com.ubiqube.etsi.mano.dao.mano.OperateChanges;
 import com.ubiqube.etsi.mano.dao.mano.VnfInstance;
 import com.ubiqube.etsi.mano.dao.mano.VnfScaleInfo;
-import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -56,7 +56,7 @@ public class VnfLcmOpOccs implements BaseEntity, Auditable {
 	private OffsetDateTime startTime = null;
 
 	private VnfInstance vnfInstance = null;
-	
+
 	private UUID vnfInstanceId = null;
 
 	private String grantId = null;

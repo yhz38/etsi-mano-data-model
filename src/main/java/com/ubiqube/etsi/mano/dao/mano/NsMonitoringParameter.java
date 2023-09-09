@@ -19,6 +19,11 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.util.Map;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
+import com.ubiqube.etsi.mano.dao.base.BaseEntity;
+
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -27,7 +32,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,13 +57,13 @@ public class NsMonitoringParameter implements Auditable, BaseEntity {
 
 	/**
 	 * Human readable name of the monitoring parameter, as defined in the VNFD.
-	 * 
+	 *
 	 */
 	private String name;
 	/**
 	 * Identifier of the NSD. Shall be present in case the value differs from the
-	 * nsdId attribute of the NSInstance (e.g. during a "Change current NS
-	 * package" operation or due to its final failure).
+	 * nsdId attribute of the NSInstance (e.g. during a "Change current NS package"
+	 * operation or due to its final failure).
 	 *
 	 * @since 3.3.1
 	 */
@@ -71,7 +75,7 @@ public class NsMonitoringParameter implements Auditable, BaseEntity {
 	 * 027 [6].
 	 */
 	private String performanceMetric;
-	
+
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Map<String, String> userDefinedData;
 }

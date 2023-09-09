@@ -21,6 +21,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
+import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkDataEntity;
+import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
@@ -31,13 +37,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
-import com.ubiqube.etsi.mano.dao.mano.Audit;
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
-import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkDataEntity;
-import com.ubiqube.etsi.mano.dao.mano.VimConnectionInformation;
-
 import lombok.Getter;
 import lombok.Setter;
 

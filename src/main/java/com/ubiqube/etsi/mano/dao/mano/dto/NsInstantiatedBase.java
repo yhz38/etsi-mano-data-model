@@ -20,7 +20,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-import com.ubiqube.etsi.mano.dao.mano.Audit;
+import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.mano.InstantiationStatusType;
 import com.ubiqube.etsi.mano.dao.mano.NsdChangeType;
 

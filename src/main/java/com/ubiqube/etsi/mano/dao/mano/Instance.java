@@ -24,10 +24,15 @@ import java.util.UUID;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
+import com.ubiqube.etsi.mano.dao.base.BaseEntity;
 import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
 import com.ubiqube.etsi.mano.dao.mano.pm.PmJob;
 import com.ubiqube.etsi.mano.dao.mano.v2.BlueprintParameters;
 import com.ubiqube.etsi.mano.dao.mano.v2.VnfBlueprint;
+import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;

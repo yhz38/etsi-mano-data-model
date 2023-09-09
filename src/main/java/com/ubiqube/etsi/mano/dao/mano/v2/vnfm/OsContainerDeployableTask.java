@@ -16,7 +16,7 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2.vnfm;
 
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.mano.pkg.OsContainerDeployableUnit;
 import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
 

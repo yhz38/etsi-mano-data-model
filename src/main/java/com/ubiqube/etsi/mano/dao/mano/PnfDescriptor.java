@@ -24,7 +24,8 @@ import java.util.UUID;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
-import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
+import com.ubiqube.etsi.mano.dao.base.BaseEntity;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;

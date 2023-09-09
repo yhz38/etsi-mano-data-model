@@ -20,12 +20,12 @@ import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.Set;
 
-import com.ubiqube.etsi.mano.dao.mano.Audit;
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.mano.CancelModeTypeEnum;
 import com.ubiqube.etsi.mano.dao.mano.Instance;
 import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
-import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;

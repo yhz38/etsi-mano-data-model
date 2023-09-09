@@ -19,8 +19,8 @@ package com.ubiqube.etsi.mano.dao.mano.dto;
 import java.util.Map;
 import java.util.Set;
 
-import com.ubiqube.etsi.mano.dao.mano.vnfi.CnfInformations;
-import com.ubiqube.etsi.mano.dao.mano.vnfi.VimCapability;
+import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.CnfInformations;
+import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.VimCapability;
 
 import lombok.Getter;
 import lombok.Setter;

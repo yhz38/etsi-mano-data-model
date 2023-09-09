@@ -24,11 +24,14 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextFi
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
 
-import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.mano.nfvo.ArchiveSecurityOptionEnumType;
 import com.ubiqube.etsi.mano.dao.mano.nfvo.NsArchiveArtifactInfo;
 import com.ubiqube.etsi.mano.dao.mano.nsd.VnffgDescriptor;
 import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsVirtualLink;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;

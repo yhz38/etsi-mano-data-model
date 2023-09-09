@@ -19,7 +19,7 @@ package com.ubiqube.etsi.mano.dao.mano.pkg;
 import java.io.Serializable;
 import java.util.UUID;
 
-import com.ubiqube.etsi.mano.service.rest.model.AuthType;
+import com.ubiqube.etsi.mano.service.auth.model.AuthType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

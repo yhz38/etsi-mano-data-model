@@ -18,6 +18,8 @@ package com.ubiqube.etsi.mano.dao.mano.ipam;
 
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -25,8 +27,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-
-import com.ubiqube.etsi.mano.dao.mano.VimConnectionInformation;
 
 @Entity
 public class Networks {
@@ -54,22 +54,22 @@ public class Networks {
 	}
 
 	public String getStartRange() {
-        return startRange;
-    }
+		return startRange;
+	}
 
-    public void setStartRange(String startRange) {
-        this.startRange = startRange;
-    }
+	public void setStartRange(final String startRange) {
+		this.startRange = startRange;
+	}
 
-    public String getEndRange() {
-        return endRange;
-    }
+	public String getEndRange() {
+		return endRange;
+	}
 
-    public void setEndRange(String endRange) {
-        this.endRange = endRange;
-    }
+	public void setEndRange(final String endRange) {
+		this.endRange = endRange;
+	}
 
-    public String getCidr() {
+	public String getCidr() {
 		return cidr;
 	}
 

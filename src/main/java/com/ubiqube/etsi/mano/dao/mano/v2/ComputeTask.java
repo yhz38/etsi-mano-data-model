@@ -16,14 +16,13 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.mano.VnfCompute;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
-
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.VnfCompute;
-
 import lombok.Getter;
 import lombok.Setter;
 

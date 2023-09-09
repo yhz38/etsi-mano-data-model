@@ -20,6 +20,12 @@ import java.time.OffsetDateTime;
 import java.util.Set;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkInfoEntity;
+import com.ubiqube.etsi.mano.dao.mano.LcmAffectedVnfc;
+import com.ubiqube.etsi.mano.dao.mano.v2.OperationStatusType;
+import com.ubiqube.etsi.mano.dao.mano.v2.PlanOperationType;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,13 +33,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
-import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkInfoEntity;
-import com.ubiqube.etsi.mano.dao.mano.LcmAffectedVnfc;
-import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
-import com.ubiqube.etsi.mano.dao.mano.v2.OperationStatusType;
-import com.ubiqube.etsi.mano.dao.mano.v2.PlanOperationType;
-
 import lombok.Getter;
 import lombok.Setter;
 

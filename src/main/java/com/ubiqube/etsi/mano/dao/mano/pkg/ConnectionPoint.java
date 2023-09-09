@@ -18,7 +18,7 @@ package com.ubiqube.etsi.mano.dao.mano.pkg;
 
 import java.util.Set;
 
-import com.ubiqube.etsi.mano.dao.mano.VlProtocolData;
+import com.ubiqube.etsi.mano.dao.mano.vim.VlProtocolData;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;

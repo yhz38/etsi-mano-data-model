@@ -19,8 +19,8 @@ package com.ubiqube.etsi.mano.tf.entities;
 import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.mano.ResourceTypeEnum;
-import com.ubiqube.etsi.mano.dao.mano.nsd.Classifier;
 import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsTask;
+import com.ubiqube.etsi.mano.dao.mano.vim.vnffg.Classifier;
 
 import jakarta.persistence.Entity;
 import lombok.Getter;

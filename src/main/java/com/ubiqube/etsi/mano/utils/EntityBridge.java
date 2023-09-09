@@ -22,7 +22,7 @@ import java.util.UUID;
 import org.hibernate.search.mapper.pojo.bridge.ValueBridge;
 import org.hibernate.search.mapper.pojo.bridge.runtime.ValueBridgeToIndexedValueContext;
 
-import com.ubiqube.etsi.mano.dao.mano.BaseEntity;
+import com.ubiqube.etsi.mano.dao.base.BaseEntity;
 
 /**
  * Simple extractor for {@link BaseEntity} object type.

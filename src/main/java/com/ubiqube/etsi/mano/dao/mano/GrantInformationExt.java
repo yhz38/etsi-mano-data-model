@@ -19,6 +19,7 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.io.Serializable;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.base.BaseEntity;
 import com.ubiqube.etsi.mano.dao.mano.grant.SnapshotResourceDefinitionEntity;
 
 import jakarta.persistence.Entity;

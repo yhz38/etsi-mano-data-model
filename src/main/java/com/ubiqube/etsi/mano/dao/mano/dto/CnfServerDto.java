@@ -16,9 +16,9 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.dto;
 
-import jakarta.validation.Valid;
+import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.CnfInformations;
 
-import com.ubiqube.etsi.mano.dao.mano.vnfi.CnfInformations;
+import jakarta.validation.Valid;
 
 /**
  *

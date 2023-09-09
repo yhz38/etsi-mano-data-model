@@ -19,11 +19,12 @@ package com.ubiqube.etsi.mano.dao.mano.v2;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
+import com.ubiqube.etsi.mano.dao.base.ToscaEntity;
 import com.ubiqube.etsi.mano.dao.mano.ChangeType;
 import com.ubiqube.etsi.mano.dao.mano.ResourceTypeEnum;
 import com.ubiqube.etsi.mano.dao.mano.ScaleInfo;
-import com.ubiqube.etsi.mano.dao.mano.ToscaEntity;
+import com.ubiqube.etsi.mano.dao.mano.vim.PlanStatusType;
 
 import jakarta.annotation.Nonnull;
 

@@ -20,6 +20,21 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
+
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
+import com.ubiqube.etsi.mano.dao.base.ToscaEntity;
+import com.ubiqube.etsi.mano.dao.mano.pkg.VirtualCpu;
+import com.ubiqube.etsi.mano.dao.mano.pkg.VirtualMemory;
+import com.ubiqube.etsi.mano.dao.mano.vim.ImageServiceAware;
+import com.ubiqube.etsi.mano.dao.mano.vim.PlacementGroup;
+import com.ubiqube.etsi.mano.dao.mano.vim.SoftwareImage;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -33,15 +48,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
-import com.ubiqube.etsi.mano.dao.mano.pkg.VirtualCpu;
-import com.ubiqube.etsi.mano.dao.mano.pkg.VirtualMemory;
-
 import lombok.Getter;
 import lombok.Setter;
 

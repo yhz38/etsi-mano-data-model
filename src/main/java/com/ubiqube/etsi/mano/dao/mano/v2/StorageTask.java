@@ -16,12 +16,11 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
+import com.ubiqube.etsi.mano.dao.mano.vim.VnfStorage;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
-
-import com.ubiqube.etsi.mano.dao.mano.VnfStorage;
-
 import lombok.Getter;
 import lombok.Setter;
 

@@ -16,6 +16,8 @@
  */
 package com.ubiqube.etsi.mano.dao.mano;
 
+import com.ubiqube.etsi.mano.dao.base.BaseEntity;
+
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}

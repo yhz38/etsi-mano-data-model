@@ -16,16 +16,15 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2.vnfm;
 
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.mano.pkg.VirtualCp;
+import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
-
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.pkg.VirtualCp;
-import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
-
 import lombok.Getter;
 import lombok.Setter;
 

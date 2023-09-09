@@ -16,9 +16,9 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2.vnfm;
 
-import com.ubiqube.etsi.mano.dao.mano.AffinityRule;
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
+import com.ubiqube.etsi.mano.dao.mano.vim.AffinityRule;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

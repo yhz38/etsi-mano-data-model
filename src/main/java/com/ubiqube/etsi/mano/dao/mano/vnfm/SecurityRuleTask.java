@@ -16,14 +16,13 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.vnfm;
 
+import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
+import com.ubiqube.etsi.mano.dao.mano.vim.SecurityGroup;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
-
-import com.ubiqube.etsi.mano.dao.mano.SecurityGroup;
-import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
-
 import lombok.Getter;
 import lombok.Setter;
 

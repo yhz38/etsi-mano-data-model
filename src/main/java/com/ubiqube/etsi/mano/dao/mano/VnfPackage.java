@@ -32,7 +32,9 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexingDependency;
 
-import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.mano.common.ListKeyPair;
 import com.ubiqube.etsi.mano.dao.mano.config.Servers;
 import com.ubiqube.etsi.mano.dao.mano.pkg.OsContainer;
@@ -41,8 +43,13 @@ import com.ubiqube.etsi.mano.dao.mano.pkg.PackageSecurityOptionType;
 import com.ubiqube.etsi.mano.dao.mano.pkg.UploadUriParameters;
 import com.ubiqube.etsi.mano.dao.mano.pkg.VirtualCp;
 import com.ubiqube.etsi.mano.dao.mano.pkg.VnfProfile;
-import com.ubiqube.etsi.mano.dao.mano.vnfi.VimCapability;
+import com.ubiqube.etsi.mano.dao.mano.vim.AffinityRule;
+import com.ubiqube.etsi.mano.dao.mano.vim.SecurityGroup;
+import com.ubiqube.etsi.mano.dao.mano.vim.SoftwareImage;
+import com.ubiqube.etsi.mano.dao.mano.vim.VnfStorage;
+import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.VimCapability;
 import com.ubiqube.etsi.mano.dao.mano.vnfm.McIops;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 import com.ubiqube.etsi.mano.utils.ToStringIgnore;
 import com.ubiqube.etsi.mano.utils.ToStringUtil;
 

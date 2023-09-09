@@ -17,6 +17,8 @@
 package com.ubiqube.etsi.mano.dao.mano;
 
 import com.ubiqube.etsi.mano.dao.mano.v2.VnfTask;
+import com.ubiqube.etsi.mano.dao.mano.vim.IpPool;
+import com.ubiqube.etsi.mano.dao.mano.vim.L3Data;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;

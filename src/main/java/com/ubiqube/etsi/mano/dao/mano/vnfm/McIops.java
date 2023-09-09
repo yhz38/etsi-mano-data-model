@@ -21,6 +21,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.vim.SoftwareImage;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -29,9 +31,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
-import com.ubiqube.etsi.mano.dao.mano.SoftwareImage;
-
 import lombok.Getter;
 import lombok.Setter;
 

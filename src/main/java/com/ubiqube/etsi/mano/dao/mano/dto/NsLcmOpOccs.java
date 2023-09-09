@@ -21,12 +21,12 @@ import java.time.OffsetDateTime;
 import java.util.Date;
 import java.util.UUID;
 
-import com.ubiqube.etsi.mano.dao.mano.BaseEntity;
+import com.ubiqube.etsi.mano.dao.base.BaseEntity;
 import com.ubiqube.etsi.mano.dao.mano.CancelModeTypeEnum;
 import com.ubiqube.etsi.mano.dao.mano.InstantiationStatusType;
 import com.ubiqube.etsi.mano.dao.mano.NsdChangeType;
 import com.ubiqube.etsi.mano.dao.mano.NsdInstance;
-import com.ubiqube.etsi.mano.dao.mano.common.FailureDetails;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
 public class NsLcmOpOccs implements BaseEntity, Serializable {
 	/** Serial. */

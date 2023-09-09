@@ -22,6 +22,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.base.ToscaEntity;
 import com.ubiqube.etsi.mano.dao.mano.pkg.ConnectionPoint;
 
 import jakarta.annotation.Nullable;

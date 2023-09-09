@@ -19,15 +19,15 @@ package com.ubiqube.etsi.mano.dao.mano.nfvo;
 import java.io.Serializable;
 import java.util.UUID;
 
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
+
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
 
 @Entity
 @Indexed

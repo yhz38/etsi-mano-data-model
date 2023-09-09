@@ -22,9 +22,10 @@ import java.util.UUID;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
 
-import com.ubiqube.etsi.mano.dao.mano.Audit;
+import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.mano.ChangeType;
 import com.ubiqube.etsi.mano.dao.mano.VimTask;
+import com.ubiqube.etsi.mano.dao.mano.vim.PlanStatusType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;

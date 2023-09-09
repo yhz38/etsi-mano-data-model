@@ -20,6 +20,16 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.audit.Audit;
+import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.audit.Auditable;
+import com.ubiqube.etsi.mano.dao.base.ToscaEntity;
+import com.ubiqube.etsi.mano.dao.mano.NsVlConnectivityType;
+import com.ubiqube.etsi.mano.dao.mano.NsVlProfile;
+import com.ubiqube.etsi.mano.dao.mano.NsdPackage;
+import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsVlLevelMapping;
+import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsVlStepMapping;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
@@ -32,17 +42,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-
-import com.ubiqube.etsi.mano.dao.mano.Audit;
-import com.ubiqube.etsi.mano.dao.mano.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.Auditable;
-import com.ubiqube.etsi.mano.dao.mano.NsVlConnectivityType;
-import com.ubiqube.etsi.mano.dao.mano.NsVlProfile;
-import com.ubiqube.etsi.mano.dao.mano.NsdPackage;
-import com.ubiqube.etsi.mano.dao.mano.ToscaEntity;
-import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsVlLevelMapping;
-import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsVlStepMapping;
-
 import lombok.Getter;
 import lombok.Setter;
 

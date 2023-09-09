@@ -23,8 +23,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
 
-import com.ubiqube.etsi.mano.dao.mano.ImageServiceAware;
-import com.ubiqube.etsi.mano.dao.mano.SoftwareImage;
+import com.ubiqube.etsi.mano.dao.mano.vim.ImageServiceAware;
+import com.ubiqube.etsi.mano.dao.mano.vim.SoftwareImage;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

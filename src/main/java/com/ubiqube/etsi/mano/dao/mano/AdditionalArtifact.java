@@ -32,8 +32,8 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
-import com.ubiqube.etsi.mano.dao.mano.common.Checksum;
 import com.ubiqube.etsi.mano.dao.mano.pkg.ArtifactClassificationType;
+import com.ubiqube.etsi.mano.dao.mano.vim.Checksum;
 import com.ubiqube.etsi.mano.utils.ToStringUtil;
 
 import lombok.Getter;
