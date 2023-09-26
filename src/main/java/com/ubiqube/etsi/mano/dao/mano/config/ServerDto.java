@@ -16,12 +16,14 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.config;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.ubiqube.etsi.mano.dao.subscription.SubscriptionType;
 import com.ubiqube.etsi.mano.service.auth.model.AuthentificationInformations;
 import com.ubiqube.etsi.mano.service.auth.model.ServerType;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -49,8 +51,12 @@ public class ServerDto {
 
 	private SubscriptionType subscriptionType;
 
-	private Set<String> capabilities;
+	private Set<String> capabilities = new LinkedHashSet<>();
 
 	@NotNull
 	private ServerType serverType;
+
+	@NotNull
+	@Valid
+	private LocalAuth localUser = new LocalAuth();
 }
