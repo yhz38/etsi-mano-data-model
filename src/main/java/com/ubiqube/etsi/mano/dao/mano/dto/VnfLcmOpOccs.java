@@ -21,6 +21,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.hibernate.annotations.TenantId;
+
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.base.BaseEntity;
@@ -93,6 +95,9 @@ public class VnfLcmOpOccs implements BaseEntity, Auditable {
 	private ModificationsTriggeredByVnfPkgChangeEntity modificationsTriggeredByVnfPkgChange;
 	// 3.3.1
 	private String vnfSnapshotInfoId;
+
+	@TenantId
+	private String tenantId;
 
 	private Audit audit;
 
