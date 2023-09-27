@@ -20,6 +20,8 @@ import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.Set;
 
+import org.hibernate.annotations.TenantId;
+
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.mano.CancelModeTypeEnum;
@@ -84,4 +86,6 @@ public abstract class AbstractBlueprint<U extends Task, V extends Instance> impl
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private Map<String, ConnectionInformation> mciopConnectionInfo;
 
+	@TenantId
+	private String tenantId;
 }
