@@ -16,6 +16,7 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.cnf;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -74,7 +75,7 @@ public class ConnectionInformation implements Auditable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Map<String, String> extra;
 
-	private String url;
+	private URI url;
 
 	private boolean ignoreSsl;
 

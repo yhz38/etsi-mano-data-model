@@ -17,9 +17,9 @@
 package com.ubiqube.etsi.mano.dao.mano.pkg;
 
 import java.io.Serializable;
+import java.net.URI;
 
 import jakarta.persistence.Embeddable;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,6 +39,6 @@ public class ParamsOauth2ClientCredentials implements Serializable {
 
 	private String clientPassword;
 
-	private String tokenEndpoint;
+	private URI tokenEndpoint;
 
 }

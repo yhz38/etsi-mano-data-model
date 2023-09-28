@@ -17,6 +17,7 @@
 package com.ubiqube.etsi.mano.dao.mano.pkg;
 
 import java.io.Serializable;
+import java.net.URI;
 import java.util.UUID;
 
 import com.ubiqube.etsi.mano.service.auth.model.AuthType;
@@ -46,7 +47,7 @@ public class UploadUriParameters implements Serializable {
 	/**
 	 * The URL.
 	 */
-	private String addressInformation;
+	private URI addressInformation;
 
 	private AuthType authType;
 
