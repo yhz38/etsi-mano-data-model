@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.sol009.peers.PeerEntityEnum;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -32,9 +34,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotNull;
-
-import com.ubiqube.etsi.mano.dao.mano.sol009.peers.PeerEntityEnum;
-
 import lombok.Data;
 
 @Data
@@ -44,44 +43,99 @@ public class ManoEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
+	/**
+	 * Type of NFV-MANO functional entity.
+	 */
 	@Enumerated(EnumType.STRING)
 	private PeerEntityEnum type;
 
+	/**
+	 * Human-readable name of the NFV-MANO functional entity. This attribute can be
+	 * modified with the PATCH method.
+	 */
 	@NotNull
 	private String name;
 
+	/**
+	 * Human-readable description of the NFV-MANO functional entity. This attribute
+	 * can be modified with the PATCH method.
+	 */
 	private String description;
 
+	/**
+	 * Information about the provider of the NFV-MANO functional entity. It
+	 * typically includes the name of the provider.
+	 */
 	private String provider;
 
+	/**
+	 * The version of the software of the NFV-MANO functional entity.
+	 */
 	private String softwareVersion;
 
+	/**
+	 * Additional information about the software used to realize the NFV- MANO
+	 * functional entity. For instance, the attribute can provide information about
+	 * sourced software and corresponding release(s) used to build the entity's
+	 * software.
+	 */
 	@ElementCollection
 	private Map<String, String> softwareInfo;
 
+	/**
+	 * The deployed NFV-MANO functional entity components which realize the NFV-MANO
+	 * functional entity. See note 5.
+	 */
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<ManoEntityComponent> manoEntityComponents;
 
+	/**
+	 * Information about the NFV-MANO services provided by the NFV-MANO functional
+	 * entity.
+	 */
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<ManoService> manoServices;
 
+	/**
+	 * Information and current values of the configurable parameters. This attribute
+	 * can be modified with the PATCH method.
+	 */
 	@Transient
 	private ManoConfigurableParams manoConfigurableParams;
 
-	private ManoEntityManoApplicationState manoApplicationState;
+	/**
+	 * Information and current values of the NFV-MANO functional entity's
+	 * application state.
+	 */
+	private ManoEntityManoApplicationState manoApplicationState = new ManoEntityManoApplicationState();
 
+	/**
+	 * The information specific to an NFVO entity. See notes 1 and 4.
+	 */
 	@OneToOne(cascade = CascadeType.ALL)
 	private NfvoSpecificInfo nfvoSpecificInfo;
 
+	/**
+	 * The information specific to a VNFM entity. See notes 2 and 4.
+	 */
 	@OneToOne(cascade = CascadeType.ALL)
 	private VnfmSpecificInfo vnfmSpecificInfo;
 
+	/**
+	 * The information specific to a VIM entity. See notes 3 and 4.
+	 */
 	@OneToOne(cascade = CascadeType.ALL)
 	private VimSpecificInfo vimSpecificInfo;
 
+	/**
+	 * The information specific to a WIM entity. See notes 4 and 6.
+	 */
 	@OneToOne(cascade = CascadeType.ALL)
 	private WimSpecificInfo wimSpecificInfo;
 
+	/**
+	 * The information specific to a CISM entity. See notes 4 and 7.
+	 */
 	@Transient
 	private CismSpecificInfo cismSpecificInfo;
 

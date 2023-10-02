@@ -37,12 +37,40 @@ public class ApiEndpoint {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
+	/**
+	 * Indicates the scheme ("http" or "https"), the host name and optional port,
+	 * and an optional sequence of path segments that together represent a prefix
+	 * path. Shall be present for ETSI NFV specified RESTful NFV-MANO APIs (see also
+	 * clause 4.1 of ETSI GS NFV-SOL 013 [4]). May be present otherwise. This
+	 * attribute can be modified with the PATCH method.
+	 */
 	private String apiRoot;
 
+	/**
+	 * Indicates the interface name in an abbreviated form. Shall be present for
+	 * ETSI NFV specified RESTful NFV-MANO APIs. The {apiName} of each interface is
+	 * defined in the standard the interface is compliant to (see also clause 4.1 of
+	 * ETSI GS NFV-SOL 013 [4]). May be present otherwise.
+	 */
 	private String apiName;
 
+	/**
+	 * Indicates the current major version of the API. Shall be present for ETSI NFV
+	 * specified RESTful NFV-MANO APIs. The major version is defined in the standard
+	 * the interface is compliant to (see also clause 4.1 of ETSI GS NFV-SOL 013
+	 * [4]). May be present otherwise.
+	 */
 	private String apiMajorVersion;
 
+	/**
+	 * URL of the API endpoint. For ETSI NFV specified RESTful NFV-MANO APIs, the
+	 * following prefix structure is used (see also clause 4.1 of ETSI GS NFV-SOL
+	 * 013 [4]): {apiRoot}/{apiName}/{apiMajorVersion} For APIs not specified by
+	 * ETSI NFV as part of the RESTful NFV-MANO APIs, this attribute can be modified
+	 * with the PATCH method. For RESTful NFV-MANO APIs specified by ETSI NFV, this
+	 * attribute shall not be modified. Instead, changes are handled indirectly via
+	 * patching of the "apiRoot" attribute's value.
+	 */
 	private String apiUri;
 
 }

@@ -24,7 +24,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import lombok.Data;
 
 @Data
@@ -34,10 +33,24 @@ public class ManoService {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
+	/**
+	 * Human-readable name of the NFV-MANO service. This attribute can be modified
+	 * with the PATCH method.
+	 */
 	private String name;
 
+	/**
+	 * Human-readable description of the NFV-MANO service. This attribute can be
+	 * modified with the PATCH method.
+	 */
 	private String description;
 
+	/**
+	 * Reference to the NFV-MANO interfaces associated to the NFV-MANO service. If
+	 * cardinality is greater than one, the type of ManoServiceInterface (see clause
+	 * 5.6.3.3) shall be the same. The identifier of the ManoServiceInterface is
+	 * referred. See note.
+	 */
 	@ElementCollection
 	private Set<String> manoServiceInterfaceIds;
 

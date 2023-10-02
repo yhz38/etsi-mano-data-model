@@ -22,7 +22,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import lombok.Data;
 
 @Data
@@ -32,8 +31,15 @@ public class SupportedOperations {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
+	/**
+	 * Name of the operation supported on the interface.
+	 */
 	private String operationName;
 
+	/**
+	 * Maximum number of concurrent requests supported by the interface operation.
+	 * See note 2.
+	 */
 	private Integer maxConcurrentOpNumber;
 
 }

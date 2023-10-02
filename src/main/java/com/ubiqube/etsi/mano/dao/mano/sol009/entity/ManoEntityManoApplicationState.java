@@ -16,21 +16,20 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.sol009.entity;
 
-import jakarta.persistence.Embeddable;
-
 import com.ubiqube.etsi.mano.dao.mano.OperationalStateType;
 import com.ubiqube.etsi.mano.dao.mano.UsageStateEnum;
 import com.ubiqube.etsi.mano.dao.mano.sol009.peers.AdministrativeState;
 
+import jakarta.persistence.Embeddable;
 import lombok.Data;
 
 @Data
 @Embeddable
 public class ManoEntityManoApplicationState {
-	private OperationalStateType operationalState;
+	private OperationalStateType operationalState = OperationalStateType.STARTED;
 
-	private AdministrativeState administrativeState;
+	private AdministrativeState administrativeState = AdministrativeState.UNLOCKED;
 
-	private UsageStateEnum usageState;
+	private UsageStateEnum usageState = UsageStateEnum.IN_USE;
 
 }
