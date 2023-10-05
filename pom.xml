@@ -9,6 +9,9 @@
 	<artifactId>mano-model</artifactId>
 	<name>mano-model</name>
 	<description>ETSI MANO Database Model.</description>
+	<properties>
+		<version.small-db>3.2.0</version.small-db>
+	</properties>
 	<scm>
 		<developerConnection>scm:git:https://github.com/openmsa/etsi-mano-data-model.git</developerConnection>
 	  <tag>HEAD</tag>
@@ -129,27 +132,27 @@
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-utils</artifactId>
-			<version>3.1.0-SNAPSHOT</version>
+			<version>${version.small-db}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-base</artifactId>
-			<version>3.1.0-SNAPSHOT</version>
+			<version>${version.small-db}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-audit</artifactId>
-			<version>3.1.0-SNAPSHOT</version>
+			<version>${version.small-db}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-vim</artifactId>
-			<version>3.1.0-SNAPSHOT</version>
+			<version>${version.small-db}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-rfc7807</artifactId>
-			<version>3.1.0-SNAPSHOT</version>
+			<version>${version.small-db}</version>
 		</dependency>
 	</dependencies>
 </project>
