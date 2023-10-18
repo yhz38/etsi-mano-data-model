@@ -20,6 +20,10 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.pkg.ArtifactClassificationType;
+import com.ubiqube.etsi.mano.dao.mano.vim.Checksum;
+import com.ubiqube.etsi.mano.utils.ToStringUtil;
+
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -27,15 +31,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
-import com.ubiqube.etsi.mano.dao.mano.pkg.ArtifactClassificationType;
-import com.ubiqube.etsi.mano.dao.mano.vim.Checksum;
-import com.ubiqube.etsi.mano.utils.ToStringUtil;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,17 +41,14 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@Indexed
 @Entity
 public class AdditionalArtifact implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
 	private UUID id;
 
-	@FullTextField
 	private String artifactPath;
 
 	@Embedded

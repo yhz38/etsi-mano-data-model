@@ -26,9 +26,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,7 +43,6 @@ public class VirtualMemory implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
 	private UUID id;
 
 	private Boolean numaEnabled;

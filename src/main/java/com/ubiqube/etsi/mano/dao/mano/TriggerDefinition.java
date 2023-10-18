@@ -20,8 +20,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -46,7 +44,6 @@ public class TriggerDefinition implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
 	private UUID id;
 
 	@Column(length = 5000)

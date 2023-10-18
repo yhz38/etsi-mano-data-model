@@ -20,11 +20,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
@@ -60,31 +55,25 @@ import lombok.Setter;
 @Setter
 @Entity
 @EntityListeners(AuditListener.class)
-@Indexed
 public class VnfCompute implements ImageServiceAware, ToscaEntity, Auditable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
 	private UUID id;
 
 	private String toscaId;
 
-	@FullTextField
 	private String toscaName;
 
 	private String state;
 
-	@FullTextField
 	private String name;
 
-	@FullTextField
 	private String description;
 
 	@Column(length = 9000)
-	@GenericField
 	private String cloudInit;
 	private String sourcePath;
 	private String destinationPath;
@@ -95,7 +84,6 @@ public class VnfCompute implements ImageServiceAware, ToscaEntity, Auditable {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private VirtualMemory virtualMemory = new VirtualMemory();
 
-	@GenericField
 	private long diskSize;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

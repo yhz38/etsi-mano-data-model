@@ -25,12 +25,6 @@ import java.util.UUID;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.search.mapper.pojo.automaticindexing.ReindexOnUpdate;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexingDependency;
 
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
@@ -83,7 +77,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Indexed
 @EntityListeners(AuditListener.class)
 public class VnfPackage implements PackageBase, Auditable {
 	/** Serial. */
@@ -91,12 +84,10 @@ public class VnfPackage implements PackageBase, Auditable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
 	private UUID id;
 
 	private String defaultInstantiationLevel;
 
-	@FullTextField
 	private String vnfdId;
 
 	/**
@@ -109,25 +100,19 @@ public class VnfPackage implements PackageBase, Auditable {
 	 *
 	 * @since 4.3.1
 	 */
-	@FullTextField
+
 	private String vnfdExtInvariantId;
 
-	@FullTextField
 	private String vnfProvider;
 
-	@FullTextField
 	private String vnfProductName;
 
-	@FullTextField
 	private String vnfSoftwareVersion;
 
-	@FullTextField
 	private String vnfdVersion;
 
-	@FullTextField
 	private String flavorId;
 
-	@FullTextField
 	private String flavourDescription;
 
 	/**
@@ -135,13 +120,10 @@ public class VnfPackage implements PackageBase, Auditable {
 	 */
 	private String overwriteDescId;
 
-	@FullTextField
 	private String descriptorVersion;
 
-	@FullTextField
 	private String productInfoDescription;
 
-	@FullTextField
 	private String defaultLocalizationLanguage;
 
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -152,25 +134,24 @@ public class VnfPackage implements PackageBase, Auditable {
 	private Set<ListKeyPair> virtualLinks = new LinkedHashSet<>();
 
 	@Embedded
-	@IndexedEmbedded
+
 	private PkgChecksum checksum;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@Fetch(FetchMode.SELECT)
-	@IndexedEmbedded
-	@IndexingDependency(reindexOnUpdate = ReindexOnUpdate.SHALLOW)
+
 	private Set<AdditionalArtifact> additionalArtifacts = new LinkedHashSet<>();
 
 	@Enumerated(EnumType.STRING)
-	@FullTextField
+
 	private OnboardingStateType onboardingState;
 
 	@Enumerated(EnumType.STRING)
-	@FullTextField
+
 	private PackageOperationalState operationalState;
 
 	@Enumerated(EnumType.STRING)
-	@FullTextField
+
 	private UsageStateEnum usageState;
 
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -178,32 +159,24 @@ public class VnfPackage implements PackageBase, Auditable {
 	private Map<String, String> userDefinedData;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@IndexedEmbedded
-	@IndexingDependency(reindexOnUpdate = ReindexOnUpdate.SHALLOW)
 	private Set<VnfCompute> vnfCompute = new LinkedHashSet<>();
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@IndexedEmbedded
-	@IndexingDependency(reindexOnUpdate = ReindexOnUpdate.SHALLOW)
 	private Set<VnfIndicator> vnfIndicator = new LinkedHashSet<>();
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@IndexedEmbedded
 	private Set<VnfVl> vnfVl = new LinkedHashSet<>();
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn
-	@IndexedEmbedded
 	private Set<VnfStorage> vnfStorage = new LinkedHashSet<>();
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn
-	@IndexedEmbedded
 	private Set<VnfLinkPort> vnfLinkPort = new LinkedHashSet<>();
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn
-	@IndexedEmbedded
 	private Set<VnfExtCp> vnfExtCp = new LinkedHashSet<>();
 
 	@ToStringIgnore
@@ -212,7 +185,7 @@ public class VnfPackage implements PackageBase, Auditable {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn
-	@IndexedEmbedded
+
 	private Set<OsContainerDesc> osContainerDesc;
 
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -222,7 +195,7 @@ public class VnfPackage implements PackageBase, Auditable {
 	private Audit audit;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@IndexedEmbedded
+
 	private Set<VnfInstantiationLevels> vnfInstantiationLevels;
 
 	@ToStringIgnore

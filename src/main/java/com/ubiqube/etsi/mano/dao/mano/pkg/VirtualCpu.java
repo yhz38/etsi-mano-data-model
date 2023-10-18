@@ -27,11 +27,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -49,12 +44,10 @@ public class VirtualCpu implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
 	private UUID id;
 
 	private String virtualCpuOversubscriptionPolicy;
 
-	@FullTextField
 	private String cpuArchitecture;
 
 	private Double virtualCpuClock;
@@ -62,7 +55,6 @@ public class VirtualCpu implements Serializable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Map<String, String> vduCpuRequirements;
 
-	@GenericField
 	private long numVirtualCpu;
 
 	private String virtualCpuPinningPolicy;

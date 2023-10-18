@@ -21,12 +21,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.automaticindexing.ReindexOnUpdate;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexingDependency;
-
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.mano.BlueZoneGroupInformation;
 import com.ubiqube.etsi.mano.dao.mano.ExtManagedVirtualLinkDataEntity;
@@ -64,25 +58,20 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Indexed
 @EntityListeners(AuditListener.class)
 public class NsBlueprint extends AbstractBlueprint<NsTask, NsdInstance> {
 
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@DocumentId
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn
-	@IndexedEmbedded
-	@IndexingDependency(reindexOnUpdate = ReindexOnUpdate.SHALLOW)
 	private Set<NsTask> tasks;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@IndexedEmbedded
 	private NsdInstance nsInstance;
 
 	private String nsInstantiationLevelId;
@@ -107,7 +96,6 @@ public class NsBlueprint extends AbstractBlueprint<NsTask, NsdInstance> {
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<ExtManagedVirtualLinkDataEntity> extManagedVirtualLinks;
 	@Embedded
-	@IndexedEmbedded
 	private BlueprintParameters parameters;
 
 	@Transient

@@ -30,37 +30,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Version;
-
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
 import lombok.Data;
 
 @Data
 @Entity
-@Indexed
 public class Alarms {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
-	@FullTextField
 	private UUID id;
 
 	/**
 	 * Identifier of the affected VNF instance.
 	 */
-	@FullTextField
 	private UUID managedObjectId;
 
 	/**
-	 * Identifiers of the affected VNFC instances. Each identifier references the "id" attribute in a "VnfcInfo" structure. Shall be present if the alarm affects at least one VNFC instance.
+	 * Identifiers of the affected VNFC instances. Each identifier references the
+	 * "id" attribute in a "VnfcInfo" structure. Shall be present if the alarm
+	 * affects at least one VNFC instance.
 	 */
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<UUID> vnfcInstanceIds;
 
 	/**
-	 * The virtualised resources that are causing the VNF fault. Shall be present if the alarm affects virtualised resources.
+	 * The virtualised resources that are causing the VNF fault. Shall be present if
+	 * the alarm affects virtualised resources.
 	 */
 	@Embedded
 	private FaultyResourceInfo rootCauseFaultyResource;
@@ -71,17 +65,20 @@ public class Alarms {
 	private LocalDateTime alarmRaisedTime;
 
 	/**
-	 * Time stamp indicating when the alarm was last changed. It shall be present if the alarm has been updated.
+	 * Time stamp indicating when the alarm was last changed. It shall be present if
+	 * the alarm has been updated.
 	 */
 	private LocalDateTime alarmChangedTime;
 
 	/**
-	 * Time stamp indicating when the alarm was cleared. It shall be present if the alarm has been cleared.
+	 * Time stamp indicating when the alarm was cleared. It shall be present if the
+	 * alarm has been cleared.
 	 */
 	private LocalDateTime alarmClearedTime;
 
 	/**
-	 * Time stamp indicating when the alarm was acknowledged. It shall be present if the alarm has been acknowledged.
+	 * Time stamp indicating when the alarm was acknowledged. It shall be present if
+	 * the alarm has been acknowledged.
 	 */
 	private LocalDateTime alarmAcknowledgedTime;
 
@@ -111,17 +108,17 @@ public class Alarms {
 	/**
 	 * Additional information to clarify the type of the fault.
 	 */
-	@FullTextField
 	private String faultType;
 
 	/**
 	 * Information about the probable cause of the fault.
 	 */
-	@FullTextField
 	private String probableCause;
 
 	/**
-	 * Attribute indicating if this fault is the root for other correlated alarms. If true, then the alarms listed in the attribute "correlatedAlarmIds" are caused by this fault. 
+	 * Attribute indicating if this fault is the root for other correlated alarms.
+	 * If true, then the alarms listed in the attribute "correlatedAlarmIds" are
+	 * caused by this fault.
 	 */
 	private boolean rootCause;
 

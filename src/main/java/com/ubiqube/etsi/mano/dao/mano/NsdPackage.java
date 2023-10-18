@@ -20,10 +20,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
-
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
@@ -57,7 +53,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Indexed
 @EntityListeners(AuditListener.class)
 public class NsdPackage implements PackageBase, Auditable {
 	/** Serial. */
@@ -73,7 +68,6 @@ public class NsdPackage implements PackageBase, Auditable {
 	// OVI removed just for plugtest => @Version
 	private long version;
 
-	@FullTextField
 	private String nsdId;
 
 	/**
@@ -81,16 +75,12 @@ public class NsdPackage implements PackageBase, Auditable {
 	 */
 	private String OverwriteDescId;
 
-	@FullTextField
 	private String nsdName;
 
-	@FullTextField
 	private String nsdVersion;
 
-	@FullTextField
 	private String nsdDesigner;
 
-	@FullTextField
 	private String nsdInvariantId;
 
 	private String instantiationLevel;
@@ -114,19 +104,18 @@ public class NsdPackage implements PackageBase, Auditable {
 	private Set<NsdPackageNsdPackage> nestedNsdInfoIds;
 
 	@Enumerated(EnumType.STRING)
-	@FullTextField
+
 	private OnboardingStateType nsdOnboardingState;
 
-	@IndexedEmbedded
 	@Embedded
 	private FailureDetails onboardingFailureDetails;
 
 	@Enumerated(EnumType.STRING)
-	@FullTextField
+
 	private PackageOperationalState nsdOperationalState;
 
 	@Enumerated(EnumType.STRING)
-	@FullTextField
+
 	private UsageStateEnum nsdUsageState;
 
 	@ElementCollection(fetch = FetchType.EAGER)

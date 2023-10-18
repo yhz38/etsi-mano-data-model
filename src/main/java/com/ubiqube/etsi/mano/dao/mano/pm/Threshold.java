@@ -20,9 +20,6 @@ import java.net.URI;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
 import com.ubiqube.etsi.mano.service.auth.model.AuthentificationInformations;
 import com.ubiqube.etsi.mano.utils.ToStringUtil;
 import com.ubiqube.etsi.mano.utils.UriConverter;
@@ -41,7 +38,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Indexed
 @Entity
 public class Threshold {
 	@Id
@@ -52,14 +48,12 @@ public class Threshold {
 	 * Type of the measured object. The applicable measured object type for a
 	 * measurement is defined in clause 7.2 of ETSI GS NFV-IFA 027 [5].
 	 */
-	@FullTextField
 	private String objectType;
 
 	/**
 	 * Identifier of the measured object (i.e. VNF instance) associated with the
 	 * threshold.
 	 */
-	@FullTextField
 	private UUID objectInstanceId;
 
 	/**

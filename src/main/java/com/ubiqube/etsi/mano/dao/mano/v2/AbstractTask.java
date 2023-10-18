@@ -19,9 +19,6 @@ package com.ubiqube.etsi.mano.dao.mano.v2;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
-
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.mano.ChangeType;
 import com.ubiqube.etsi.mano.dao.mano.VimTask;
@@ -60,26 +57,19 @@ public abstract class AbstractTask implements VimTask {
 	private Audit audit;
 
 	@Enumerated(EnumType.STRING)
-	@FullTextField
 	private ChangeType changeType;
 
-	@FullTextField
 	private String toscaName;
 
 	private String toscaId = UUID.randomUUID().toString();
 
 	private String state;
-	@FullTextField
 	private String alias;
-	@GenericField
 	private LocalDateTime startDate;
-	@GenericField
 	private LocalDateTime endDate;
 
 	@Enumerated(EnumType.STRING)
-	@FullTextField
 	private PlanStatusType status;
-	@FullTextField
 	@Column(length = 5000)
 	/**
 	 * It should be a BLOB due to the size, but it pose a lot of problem with

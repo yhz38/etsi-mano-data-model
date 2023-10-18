@@ -19,12 +19,7 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.util.List;
 import java.util.Set;
 
-import org.hibernate.search.mapper.pojo.bridge.mapping.annotation.ValueBridgeRef;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
-import com.ubiqube.etsi.mano.utils.EntityBridge;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -38,44 +33,42 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Indexed
 @EntityListeners(AuditListener.class)
 public class VnfInstance extends Instance {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	@FullTextField(name = "vnfPkgId", valueBridge = @ValueBridgeRef(type = EntityBridge.class))
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
 	private VnfPackage vnfPkg;
 
 	/**
 	 * Identifier of the VNFD on which the VNF instance is based. See note 1.
 	 */
-	@FullTextField
+
 	private String vnfdId;
 
 	/**
 	 * Provider of the VNF and the VNFD. The value is copied from the VNFD.
 	 */
-	@FullTextField
+
 	private String vnfProvider;
 
 	/**
 	 * Name to identify the VNF Product. The value is copied from the VNFD.
 	 */
-	@FullTextField
+
 	private String vnfProductName;
 
 	/**
 	 * Software version of the VNF. The value is copied from the VNFD.
 	 */
-	@FullTextField
+
 	private String vnfSoftwareVersion;
 
 	/**
 	 * Identifies the version of the VNFD. The value is copied from the VNFD.
 	 */
-	@FullTextField
+
 	private String vnfdVersion;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

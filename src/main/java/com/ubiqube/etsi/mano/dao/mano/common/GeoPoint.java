@@ -19,10 +19,6 @@ package com.ubiqube.etsi.mano.dao.mano.common;
 import java.io.Serializable;
 
 import jakarta.persistence.Embeddable;
-
-import org.hibernate.search.mapper.pojo.bridge.builtin.annotation.Latitude;
-import org.hibernate.search.mapper.pojo.bridge.builtin.annotation.Longitude;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,10 +38,8 @@ public class GeoPoint implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	@Longitude
 	private double lng;
 
-	@Latitude
 	private double lat;
 
 	public static GeoPoint of(final double lat, final double lng) {

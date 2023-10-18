@@ -16,8 +16,6 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.mano.ResourceTypeEnum;
 import com.ubiqube.etsi.mano.dao.mano.ScaleInfo;
@@ -40,7 +38,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @EntityListeners(AuditListener.class)
-@Indexed
 public class NsSfcTask extends NsTask {
 
 	/** Serial. */

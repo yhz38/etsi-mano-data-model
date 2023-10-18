@@ -21,10 +21,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.base.ToscaEntity;
@@ -45,7 +41,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Indexed
 @NoArgsConstructor
 public class VnfIndicator implements ToscaEntity, Auditable {
 
@@ -53,7 +48,6 @@ public class VnfIndicator implements ToscaEntity, Auditable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@DocumentId
 	private UUID id;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -61,10 +55,8 @@ public class VnfIndicator implements ToscaEntity, Auditable {
 
 	private String source;
 
-	@FullTextField
 	private String name;
 
-	@FullTextField
 	private String toscaName;
 
 	private String state;

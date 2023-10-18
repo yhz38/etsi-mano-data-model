@@ -20,8 +20,6 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-
 import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
 
 import jakarta.persistence.ElementCollection;
@@ -39,7 +37,6 @@ public class VnfInfoModifications implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@DocumentId
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 

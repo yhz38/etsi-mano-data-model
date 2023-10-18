@@ -23,13 +23,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.bridge.mapping.annotation.ValueBridgeRef;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.KeywordField;
-
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.mano.BlueZoneGroupInformation;
 import com.ubiqube.etsi.mano.dao.mano.ExtManagedVirtualLinkDataEntity;
@@ -44,7 +37,6 @@ import com.ubiqube.etsi.mano.dao.mano.vnfi.ChangeExtVnfConnRequest;
 import com.ubiqube.etsi.mano.dao.mano.vnfm.RejectedLcmCoordination;
 import com.ubiqube.etsi.mano.dao.mano.vnfm.VnfLcmCoordination;
 import com.ubiqube.etsi.mano.dao.mano.vnfm.VnfPkgChange;
-import com.ubiqube.etsi.mano.utils.EntityBridge;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
@@ -73,20 +65,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Indexed
 @EntityListeners(AuditListener.class)
 public class VnfBlueprint extends AbstractBlueprint<VnfTask, VnfInstance> {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@DocumentId
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
 	@ManyToOne
 	@JoinColumn
-	@FullTextField(name = "vnfInstanceId", valueBridge = @ValueBridgeRef(type = EntityBridge.class))
 	private VnfInstance vnfInstance;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -104,15 +93,12 @@ public class VnfBlueprint extends AbstractBlueprint<VnfTask, VnfInstance> {
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<BlueZoneGroupInformation> zoneGroups;
 
-	@FullTextField
 	private String grantsRequestId;
 
 	@Embedded
-	@IndexedEmbedded
 	private BlueprintParameters parameters = new BlueprintParameters();
 
 	@Embedded
-	@IndexedEmbedded
 	private OperateChanges operateChanges = new OperateChanges();
 
 	/**
@@ -127,7 +113,6 @@ public class VnfBlueprint extends AbstractBlueprint<VnfTask, VnfInstance> {
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private ChangeExtVnfConnRequest changeExtVnfConnRequest;
 	// 3.3.1
-	@KeywordField
 	private String vnfSnapshotInfoId;
 	// 3.3.1
 	private VnfPkgChange modificationsTriggeredByVnfPkgChange;
@@ -151,7 +136,6 @@ public class VnfBlueprint extends AbstractBlueprint<VnfTask, VnfInstance> {
 	/**
 	 * @since 4.3.1
 	 */
-	@KeywordField
 	private UUID grantId;
 
 	/**

@@ -22,8 +22,6 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.hibernate.annotations.TenantId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
@@ -62,7 +60,6 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Indexed
 @EntityListeners(AuditListener.class)
 public class Instance implements BaseEntity, Auditable {
 	/** Serial. */
@@ -85,14 +82,12 @@ public class Instance implements BaseEntity, Auditable {
 	 * instance is instantiated.
 	 */
 	@Enumerated(EnumType.STRING)
-	@FullTextField
 	private InstantiationState instantiationState;
 
 	/**
 	 * Human-readable description of the VNF instance. This attribute can be
 	 * modified with the PATCH method.
 	 */
-	@FullTextField
 	private String vnfInstanceDescription;
 
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -149,7 +144,6 @@ public class Instance implements BaseEntity, Auditable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Map<String, String> vnfConfigurableProperties;
 
-	@FullTextField
 	private String vnfInstanceName;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)

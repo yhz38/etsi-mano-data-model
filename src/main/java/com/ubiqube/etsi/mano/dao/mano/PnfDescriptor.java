@@ -21,9 +21,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
 import com.ubiqube.etsi.mano.dao.base.BaseEntity;
 import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
@@ -46,7 +43,6 @@ import lombok.Setter;
  */
 @Entity
 @Getter
-@Indexed
 @Setter
 public class PnfDescriptor implements BaseEntity, Serializable {
 	/** Serial. */
@@ -54,15 +50,15 @@ public class PnfDescriptor implements BaseEntity, Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-	@FullTextField
+
 	private String pnfdId;
-	@FullTextField
+
 	private String pnfdName;
-	@FullTextField
+
 	private String pnfdersion;
-	@FullTextField
+
 	private String pnfdProvider;
-	@FullTextField
+
 	private String pnfdInvariantId;
 	@Enumerated(EnumType.STRING)
 	private OnboardingStateType pnfdOnboardingState;

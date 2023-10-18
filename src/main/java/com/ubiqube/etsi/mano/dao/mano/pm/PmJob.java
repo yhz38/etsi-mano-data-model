@@ -23,10 +23,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.DocumentId;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-
 import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
 import com.ubiqube.etsi.mano.service.auth.model.AuthentificationInformations;
 import com.ubiqube.etsi.mano.utils.ToStringIgnore;
@@ -64,13 +60,11 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Indexed
 public class PmJob implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@DocumentId
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
@@ -114,7 +108,6 @@ public class PmJob implements Serializable {
 	 * The URI of the endpoint to send the notification to.
 	 */
 	@Convert(converter = UriConverter.class)
-	@FullTextField
 	private URI callbackUri;
 
 	/**

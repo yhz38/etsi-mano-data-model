@@ -21,8 +21,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hibernate.search.mapper.pojo.bridge.builtin.annotation.GeoPointBinding;
-
 import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
@@ -87,7 +85,6 @@ public class ConnectionInformation implements Auditable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> capabilities;
 
-	@GeoPointBinding
 	private GeoPoint geoloc;
 
 	@Version
