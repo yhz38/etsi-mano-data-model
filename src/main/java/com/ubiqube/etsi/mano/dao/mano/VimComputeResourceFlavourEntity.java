@@ -19,8 +19,10 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.io.Serializable;
 
 import jakarta.persistence.Embeddable;
+import lombok.ToString;
 
 @Embeddable
+@ToString
 public class VimComputeResourceFlavourEntity implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
