@@ -10,7 +10,7 @@
 	<name>mano-model</name>
 	<description>ETSI MANO Database Model.</description>
 	<properties>
-		<version.small-db>3.2.0</version.small-db>
+		<version.small-db>3.2.1-SNAPSHOT</version.small-db>
 	</properties>
 	<scm>
 		<developerConnection>scm:git:https://github.com/openmsa/etsi-mano-data-model.git</developerConnection>

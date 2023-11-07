@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.CnfInformations;
+import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.JujuInformations;
 import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.VimCapability;
 
 import lombok.Getter;
@@ -40,6 +41,8 @@ public class VimConnectionInfoDto {
 	private Map<String, String> extra;
 
 	private CnfInformations cnfInfo;
+	
+	private JujuInformations jujuInfo;
 	/**
 	 * Capabilities of the vim. Read VimCapabilites Enum to figure out what we can
 	 * do.
