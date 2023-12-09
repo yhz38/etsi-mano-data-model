@@ -12,6 +12,7 @@ spring:
   datasource:
     driverClassName: org.h2.Driver
     url: jdbc:h2:file:~/mano-test.h2;AUTO_SERVER=TRUE
+
     username: sa
     hikari:
       max-lifetime: 600000
@@ -23,4 +24,7 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
         globally_quoted_identifiers: true
         keyword_auto_quoting_enabled: true
+  output:
+    ansi:
+      enabled: always
 #
