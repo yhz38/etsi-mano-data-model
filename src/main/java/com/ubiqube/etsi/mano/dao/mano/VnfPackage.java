@@ -172,7 +172,6 @@ public class VnfPackage implements PackageBase, Auditable {
 	private Set<VnfStorage> vnfStorage = new LinkedHashSet<>();
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn
 	private Set<VnfLinkPort> vnfLinkPort = new LinkedHashSet<>();
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

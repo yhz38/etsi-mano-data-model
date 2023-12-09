@@ -17,6 +17,8 @@
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -45,7 +47,6 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -120,8 +121,7 @@ public class BlueprintParameters implements Serializable {
 	String instantiationLevelId;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn
-	private Set<ScaleInfo> scaleStatus;
+	private Set<ScaleInfo> scaleStatus = new HashSet<>();
 
 	/**
 	 * Scale status of the VNF, one entry per aspect. Represents for every scaling
@@ -130,11 +130,10 @@ public class BlueprintParameters implements Serializable {
 	 * explanation of VNF scaling.
 	 */
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<NsScaleInfo> nsScaleStatus;
+	private Set<NsScaleInfo> nsScaleStatus = new HashSet<>();
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn
-	private Set<ScaleInfo> nsStepStatus;
+	private Set<ScaleInfo> nsStepStatus = new HashSet<>();
 
 	/**
 	 * Information about the externally-managed internal VLs of the VNF instance.
@@ -142,7 +141,7 @@ public class BlueprintParameters implements Serializable {
 	 */
 	@Valid
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<ExtManagedVirtualLinkDataEntity> extManagedVirtualLinks;
+	private Set<ExtManagedVirtualLinkDataEntity> extManagedVirtualLinks = new HashSet<>();
 
 	private Integer numberOfSteps;
 
@@ -183,7 +182,7 @@ public class BlueprintParameters implements Serializable {
 	 */
 	@Nullable
 	@Transient
-	private Set<VnfMonitoringParameter> vnfMonitoringParameter;
+	private Set<VnfMonitoringParameter> vnfMonitoringParameter = new HashSet<>();
 
 	/**
 	 * Information about the virtualised storage resources used as storage for the
@@ -191,14 +190,14 @@ public class BlueprintParameters implements Serializable {
 	 */
 	@Nullable
 	@Transient
-	private Set<VirtualStorageResourceInfo> virtualStorageResourceInfo;
+	private Set<VirtualStorageResourceInfo> virtualStorageResourceInfo = new HashSet<>();
 
 	/**
 	 * Information about the external VLs the VNF instance is connected to.
 	 */
 	@Transient
 	@Nullable
-	private Set<ExtVirtualLinkDataEntity> extVirtualLinkInfo;
+	private Set<ExtVirtualLinkDataEntity> extVirtualLinkInfo = new HashSet<>();
 
 	/**
 	 * Information about the external CPs exposed by the VNF instance. When trunking
@@ -207,7 +206,7 @@ public class BlueprintParameters implements Serializable {
 	 */
 	@Nullable
 	@Transient
-	private Set<ExtCpInfo> extCpInfo;
+	private Set<ExtCpInfo> extCpInfo = new HashSet<>();
 
 	/**
 	 * Information about the virtualised compute and storage resources used by the
@@ -215,7 +214,7 @@ public class BlueprintParameters implements Serializable {
 	 */
 	@Nullable
 	@Transient
-	private Set<VnfcResourceInfoEntity> vnfcResourceInfo;
+	private Set<VnfcResourceInfoEntity> vnfcResourceInfo = new HashSet<>();
 
 	/**
 	 * Information about the virtualised network resources used by the VLs of the
@@ -223,34 +222,34 @@ public class BlueprintParameters implements Serializable {
 	 */
 	@Nullable
 	@Transient
-	private Set<VirtualLinkInfo> virtualLinkResourceInfo;
+	private Set<VirtualLinkInfo> virtualLinkResourceInfo = new HashSet<>();
 
 	@JdbcTypeCode(SqlTypes.JSON)
 	private UpdateRequest updData;
 
 	// 2.7.1
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<ScaleInfo> maxScaleLevels;
+	private List<ScaleInfo> maxScaleLevels = new ArrayList<>();
 
 	// 2.8.1
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<VnfcInfo> vnfcInfo;
+	private List<VnfcInfo> vnfcInfo = new ArrayList<>();
 
 	/**
 	 * @since 3.5.1
 	 */
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<VipCpInfo> vipCpInfo;
+	private List<VipCpInfo> vipCpInfo = new ArrayList<>();
 
 	/**
 	 * @since 4.3.1
 	 */
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<McioInfo> mcioInfo;
+	private List<McioInfo> mcioInfo = new ArrayList<>();
 
 	/**
 	 * @since 4.3.1
 	 */
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<VirtualCpInfo> virtualCpInfo;
+	private List<VirtualCpInfo> virtualCpInfo = new ArrayList<>();
 }
