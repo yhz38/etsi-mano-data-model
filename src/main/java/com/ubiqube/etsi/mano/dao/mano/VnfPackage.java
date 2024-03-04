@@ -37,6 +37,7 @@ import com.ubiqube.etsi.mano.dao.mano.pkg.PackageSecurityOptionType;
 import com.ubiqube.etsi.mano.dao.mano.pkg.UploadUriParameters;
 import com.ubiqube.etsi.mano.dao.mano.pkg.VirtualCp;
 import com.ubiqube.etsi.mano.dao.mano.pkg.VnfProfile;
+import com.ubiqube.etsi.mano.dao.mano.repo.Repository;
 import com.ubiqube.etsi.mano.dao.mano.vim.AffinityRule;
 import com.ubiqube.etsi.mano.dao.mano.vim.SecurityGroup;
 import com.ubiqube.etsi.mano.dao.mano.vim.SoftwareImage;
@@ -302,6 +303,9 @@ public class VnfPackage implements PackageBase, Auditable {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Attributes> attributes;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Repository> repositories;
 
 	@Transient
 	private List<AttributeAssignements> overloadedAttribute;
