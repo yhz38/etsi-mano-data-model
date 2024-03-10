@@ -43,6 +43,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -78,9 +79,11 @@ public class VnfCompute implements ImageServiceAware, ToscaEntity, Auditable {
 	private String sourcePath;
 	private String destinationPath;
 
+	@NotNull
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private VirtualCpu virtualCpu = new VirtualCpu();
 
+	@NotNull
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private VirtualMemory virtualMemory = new VirtualMemory();
 
