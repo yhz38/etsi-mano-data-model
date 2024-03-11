@@ -31,6 +31,7 @@ import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
 import com.ubiqube.etsi.mano.dao.mano.grant.PlacementConstraint;
 import com.ubiqube.etsi.mano.dao.mano.grant.VimConstraint;
 import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 import com.ubiqube.etsi.mano.utils.ToStringUtil;
 
 import jakarta.persistence.CascadeType;
@@ -310,6 +311,7 @@ public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
 
 	private String lcmLink;
 
+	private FailureDetails error;
 	/**
 	 * Flag to say if grants have been, inspected.
 	 */
