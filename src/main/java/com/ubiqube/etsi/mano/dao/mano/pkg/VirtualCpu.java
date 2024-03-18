@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -60,5 +61,6 @@ public class VirtualCpu implements Serializable {
 	private String virtualCpuPinningPolicy;
 
 	@ElementCollection(fetch = FetchType.EAGER)
+	@Nullable
 	private List<String> virtualCpuPinningRule;
 }
