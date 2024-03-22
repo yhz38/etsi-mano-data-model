@@ -89,7 +89,7 @@ public class ExtManagedVirtualLinkDataEntity implements Serializable {
 	private String extManagedMultisiteVirtualLinkId;
 
 	@ToStringIgnore
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
 	private GrantResponse grants;
 
 	@ToStringIgnore
