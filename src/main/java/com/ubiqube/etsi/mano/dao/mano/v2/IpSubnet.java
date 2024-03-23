@@ -19,6 +19,8 @@ package com.ubiqube.etsi.mano.dao.mano.v2;
 import java.io.Serializable;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.utils.ToStringUtil;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,4 +39,9 @@ public class IpSubnet implements Serializable {
 	private UUID id;
 	private String ip;
 	private String subnetId;
+
+	@Override
+	public String toString() {
+		return ToStringUtil.toString(this);
+	}
 }
