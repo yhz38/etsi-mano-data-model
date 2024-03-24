@@ -181,7 +181,7 @@ public class BlueprintParameters implements Serializable {
 	 * Active monitoring parameters.
 	 */
 	@Nullable
-	@Transient
+	@JdbcTypeCode(SqlTypes.JSON)
 	private Set<VnfMonitoringParameter> vnfMonitoringParameter = new HashSet<>();
 
 	/**
@@ -189,14 +189,14 @@ public class BlueprintParameters implements Serializable {
 	 * VNF instance.
 	 */
 	@Nullable
-	@Transient
+	@JdbcTypeCode(SqlTypes.JSON)
 	private Set<VirtualStorageResourceInfo> virtualStorageResourceInfo = new HashSet<>();
 
 	/**
 	 * Information about the external VLs the VNF instance is connected to.
 	 */
 	@Transient
-	@Nullable
+	@JdbcTypeCode(SqlTypes.JSON)
 	private Set<ExtVirtualLinkDataEntity> extVirtualLinkInfo = new HashSet<>();
 
 	/**
@@ -205,7 +205,7 @@ public class BlueprintParameters implements Serializable {
 	 * parent ports of a trunk, and external CPs associated to sub-ports of a trunk.
 	 */
 	@Nullable
-	@Transient
+	@JdbcTypeCode(SqlTypes.JSON)
 	private Set<ExtCpInfo> extCpInfo = new HashSet<>();
 
 	/**
@@ -213,7 +213,7 @@ public class BlueprintParameters implements Serializable {
 	 * VNFCs of the VNF instance.
 	 */
 	@Nullable
-	@Transient
+	@JdbcTypeCode(SqlTypes.JSON)
 	private Set<VnfcResourceInfoEntity> vnfcResourceInfo = new HashSet<>();
 
 	/**
@@ -221,7 +221,7 @@ public class BlueprintParameters implements Serializable {
 	 * VNF instance. See note 6.
 	 */
 	@Nullable
-	@Transient
+	@JdbcTypeCode(SqlTypes.JSON)
 	private Set<VirtualLinkInfo> virtualLinkResourceInfo = new HashSet<>();
 
 	@JdbcTypeCode(SqlTypes.JSON)
