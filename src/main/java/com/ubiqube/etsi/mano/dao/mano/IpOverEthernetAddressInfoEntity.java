@@ -34,16 +34,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Setter
-@Getter
+@Data
 @Entity
 public class IpOverEthernetAddressInfoEntity implements Serializable {
 	/** Serial. */

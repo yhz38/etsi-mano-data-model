@@ -20,16 +20,14 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 public class ExtManagedVirtualLinkData implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

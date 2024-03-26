@@ -19,18 +19,15 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.io.Serializable;
 
 import jakarta.persistence.Embeddable;
-
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
+@Data
 @Embeddable
-@Getter
-@Setter
 public class IpOverEthernetAddressInfoAddressRangeEntity implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

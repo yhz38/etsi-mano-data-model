@@ -19,24 +19,21 @@ package com.ubiqube.etsi.mano.dao.mano.nsd.wan;
 import java.io.Serializable;
 import java.util.Map;
 
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-
 import com.ubiqube.etsi.mano.dao.mano.nsd.wan.type.ConnectionType;
 import com.ubiqube.etsi.mano.dao.mano.nsd.wan.type.EncapsulationType;
 import com.ubiqube.etsi.mano.dao.mano.nsd.wan.type.InterfaceTaggingType;
 import com.ubiqube.etsi.mano.dao.mano.nsd.wan.type.InterfaceType;
 import com.ubiqube.etsi.mano.dao.mano.nsd.wan.type.VlanTaggingType;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @Embeddable
 public class Layer2ConnectionInformation implements Serializable {
 	/** Serial. */

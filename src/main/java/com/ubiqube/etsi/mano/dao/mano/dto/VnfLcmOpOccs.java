@@ -35,16 +35,14 @@ import com.ubiqube.etsi.mano.dao.mano.VnfInstance;
 import com.ubiqube.etsi.mano.dao.mano.VnfScaleInfo;
 import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Setter
-@Getter
+@Data
 public class VnfLcmOpOccs implements BaseEntity, Auditable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

@@ -21,16 +21,14 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author olivier
  *
  */
-@Getter
-@Setter
+@Data
 public class ChangeVnfFlavourData implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

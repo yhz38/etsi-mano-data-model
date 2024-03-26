@@ -18,20 +18,17 @@ package com.ubiqube.etsi.mano.dao.mano;
 
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.alarm.ResourceHandle;
+import com.ubiqube.etsi.mano.dao.mano.dto.VnfInstantiatedBase;
+
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
-import com.ubiqube.etsi.mano.dao.mano.alarm.ResourceHandle;
-import com.ubiqube.etsi.mano.dao.mano.dto.VnfInstantiatedBase;
-
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
+@Data
 @Entity
 public class ExtLinkPortDataEntity extends VnfInstantiatedBase {
 	/** Serial. */

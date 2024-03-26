@@ -20,17 +20,14 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import jakarta.persistence.Embeddable;
-
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Embeddable
 public class SiteToWanLayer2ProtocolDatas implements Serializable {
 	/** Serial. */

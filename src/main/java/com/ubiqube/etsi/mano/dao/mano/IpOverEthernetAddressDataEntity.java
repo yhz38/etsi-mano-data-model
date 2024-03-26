@@ -20,6 +20,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,21 +30,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.Valid;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
- * TODO: maybe we can remove this table. USED: IpOverEthernetAddressDataIpAddressesEntity
+ * TODO: maybe we can remove this table. USED:
+ * IpOverEthernetAddressDataIpAddressesEntity
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Entity
 public class IpOverEthernetAddressDataEntity implements Serializable {
 	/** Serial. */

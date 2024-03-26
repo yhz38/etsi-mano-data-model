@@ -20,11 +20,12 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+/**
+ * @author olivier
+ */
+@Data
 public class VnfInstanceData implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

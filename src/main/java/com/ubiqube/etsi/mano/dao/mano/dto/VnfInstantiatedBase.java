@@ -32,16 +32,14 @@ import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.OneToOne;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Setter
-@Getter
+@Data
 public class VnfInstantiatedBase implements Auditable, BaseEntity {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

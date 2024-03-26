@@ -33,11 +33,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @Entity
 @EntityListeners(AuditListener.class)
 public class VirtualStorageResourceInfo implements BaseEntity, Auditable {

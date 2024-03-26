@@ -19,17 +19,14 @@ package com.ubiqube.etsi.mano.dao.mano.nsd.wan;
 import java.io.Serializable;
 
 import jakarta.persistence.Embeddable;
-
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Embeddable
 public class WanSegmentId implements Serializable {
 	/** Serial. */

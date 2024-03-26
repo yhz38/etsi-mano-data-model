@@ -21,21 +21,18 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.validation.Valid;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ubiqube.etsi.mano.utils.ToStringUtil;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.Valid;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 public class UpdateRequest implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

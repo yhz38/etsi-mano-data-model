@@ -19,22 +19,19 @@ package com.ubiqube.etsi.mano.dao.mano.nsd.wan;
 import java.io.Serializable;
 import java.util.Set;
 
+import com.ubiqube.etsi.mano.dao.mano.alarm.ResourceHandle;
+
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.FetchType;
-
-import com.ubiqube.etsi.mano.dao.mano.alarm.ResourceHandle;
-
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Embeddable
 public class ForwardingConfig implements Serializable {
 	/** Serial. */

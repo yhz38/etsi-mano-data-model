@@ -19,6 +19,9 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.io.Serializable;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
@@ -30,20 +33,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Entity
 public class CpProtocolInfoEntity implements Serializable {
 	/** Serial. */
@@ -85,7 +82,7 @@ public class CpProtocolInfoEntity implements Serializable {
 		}
 	}
 
-	private LayerProtocolEnum layerProtocol = null;
+	private LayerProtocolEnum layerProtocol;
 
 	@OneToOne
 	private IpOverEthernetAddressInfoEntity ipOverEthernet;

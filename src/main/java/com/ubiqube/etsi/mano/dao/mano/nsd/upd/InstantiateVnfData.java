@@ -20,21 +20,18 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import jakarta.validation.Valid;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.VnfLocationConstraint;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.Valid;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 public class InstantiateVnfData implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

@@ -19,22 +19,19 @@ package com.ubiqube.etsi.mano.dao.mano.nsd.wan;
 import java.io.Serializable;
 import java.util.List;
 
+import com.ubiqube.etsi.mano.dao.mano.nsd.wan.type.PeerModeType;
+
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.FetchType;
-
-import com.ubiqube.etsi.mano.dao.mano.nsd.wan.type.PeerModeType;
-
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Embeddable
 public class VxLanConfig implements Serializable {
 	/** Serial. */

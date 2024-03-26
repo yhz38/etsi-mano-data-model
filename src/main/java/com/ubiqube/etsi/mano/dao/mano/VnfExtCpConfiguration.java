@@ -28,7 +28,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
+import lombok.Data;
 
+@Data
 @Entity
 public class VnfExtCpConfiguration implements Serializable {
 	/** Serial. */
@@ -48,45 +50,5 @@ public class VnfExtCpConfiguration implements Serializable {
 
 	@OneToOne
 	private VnfExtCpDataEntity vnfExtCpDataEntity;
-
-	public UUID getId() {
-		return id;
-	}
-
-	public void setId(final UUID id) {
-		this.id = id;
-	}
-
-	public String getCpInstanceId() {
-		return cpInstanceId;
-	}
-
-	public void setCpInstanceId(final String cpInstanceId) {
-		this.cpInstanceId = cpInstanceId;
-	}
-
-	public String getLinkPortId() {
-		return linkPortId;
-	}
-
-	public void setLinkPortId(final String linkPortId) {
-		this.linkPortId = linkPortId;
-	}
-
-	public List<CpProtocolDataEntity> getCpProtocolData() {
-		return cpProtocolData;
-	}
-
-	public void setCpProtocolData(final List<CpProtocolDataEntity> cpProtocolData) {
-		this.cpProtocolData = cpProtocolData;
-	}
-
-	public VnfExtCpDataEntity getVnfExtCpDataEntity() {
-		return vnfExtCpDataEntity;
-	}
-
-	public void setVnfExtCpDataEntity(final VnfExtCpDataEntity vnfExtCpDataEntity) {
-		this.vnfExtCpDataEntity = vnfExtCpDataEntity;
-	}
 
 }

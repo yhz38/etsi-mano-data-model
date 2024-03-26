@@ -67,16 +67,14 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.OrderColumn;
 import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Entity
 @EntityListeners(AuditListener.class)
 public class VnfPackage implements PackageBase, Auditable {

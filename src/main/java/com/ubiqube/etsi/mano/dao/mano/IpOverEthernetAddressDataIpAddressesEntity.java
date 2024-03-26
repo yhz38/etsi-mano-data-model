@@ -29,17 +29,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.Valid;
-
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Entity
 public class IpOverEthernetAddressDataIpAddressesEntity implements Serializable {
 	/** Serial. */
@@ -50,17 +47,17 @@ public class IpOverEthernetAddressDataIpAddressesEntity implements Serializable 
 	private UUID id;
 
 	@Enumerated(EnumType.STRING)
-	private IpType type = null;
+	private IpType type;
 
 	@Valid
 	@ElementCollection
 	private List<String> addresses;
 
-	private Integer numDynamicAddresses = null;
+	private Integer numDynamicAddresses;
 
 	@Embedded
-	private IpOverEthernetAddressDataAddressRangeEntity addressRange = null;
+	private IpOverEthernetAddressDataAddressRangeEntity addressRange;
 
-	private String subnetId = null;
+	private String subnetId;
 
 }
