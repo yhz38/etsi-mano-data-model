@@ -29,16 +29,14 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 @Entity
 @EntityListeners(AuditListener.class)
 public class VnfMonitoringParameter implements Auditable, BaseEntity {
