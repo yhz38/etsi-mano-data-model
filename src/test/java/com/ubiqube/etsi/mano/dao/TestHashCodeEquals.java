@@ -25,13 +25,18 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.ubiqube.etsi.mano.dao.mano.CpProtocolDataEntity;
 import com.ubiqube.etsi.mano.dao.mano.ExtCpInfo;
 import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkDataEntity;
 import com.ubiqube.etsi.mano.dao.mano.VirtualLinkInfo;
 import com.ubiqube.etsi.mano.dao.mano.VirtualStorageResourceInfo;
+import com.ubiqube.etsi.mano.dao.mano.VnfCompute;
+import com.ubiqube.etsi.mano.dao.mano.VnfExtCpConfiguration;
 import com.ubiqube.etsi.mano.dao.mano.VnfMonitoringParameter;
+import com.ubiqube.etsi.mano.dao.mano.VnfPackage;
 import com.ubiqube.etsi.mano.dao.mano.VnfcResourceInfoEntity;
 
+import uk.co.jemos.podam.api.DefaultClassInfoStrategy;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 class TestHashCodeEquals {
@@ -42,6 +47,13 @@ class TestHashCodeEquals {
 		podam = new PodamFactoryImpl();
 		podam.getStrategy().addOrReplaceTypeManufacturer(String.class, new UUIDManufacturer());
 		podam.getStrategy().setDefaultNumberOfCollectionElements(1);
+		podam.getStrategy().addOrReplaceTypeManufacturer(VnfPackage.class, (a, b, c) -> null);
+		podam.getStrategy().addOrReplaceTypeManufacturer(VnfCompute.class, (a, b, c) -> null);
+		final DefaultClassInfoStrategy classInfoStrategy = DefaultClassInfoStrategy.getInstance();
+		classInfoStrategy.addExcludedField(VirtualLinkInfo.class, "vnfLcmOpOccs");
+		classInfoStrategy.addExcludedField(ExtVirtualLinkDataEntity.class, "vnfInstance");
+		classInfoStrategy.addExcludedField(CpProtocolDataEntity.class, "vnfExtCpConfiguration");
+		classInfoStrategy.addExcludedField(VnfExtCpConfiguration.class, "vnfExtCpDataEntity");
 		mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 	}
 
@@ -104,11 +116,7 @@ class TestHashCodeEquals {
 		assertNotNull(a.toString());
 	}
 
-	/**
-	 * Because of VnfPackage dependencies.
-	 *
-	 * @throws IOException
-	 */
+	@Test
 	void testVirtualLinkInfo() throws IOException {
 		final VirtualLinkInfo obj = podam.manufacturePojo(VirtualLinkInfo.class);
 		final String str = mapper.writeValueAsString(obj);
