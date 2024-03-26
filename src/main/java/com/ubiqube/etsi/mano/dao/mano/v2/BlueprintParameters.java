@@ -51,7 +51,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Transient;
 import jakarta.validation.Valid;
 import lombok.Getter;
 import lombok.Setter;
@@ -196,7 +195,6 @@ public class BlueprintParameters implements Serializable {
 	/**
 	 * Information about the external VLs the VNF instance is connected to.
 	 */
-	@Transient
 	@JdbcTypeCode(SqlTypes.JSON)
 	private Set<ExtVirtualLinkDataEntity> extVirtualLinkInfo = new HashSet<>();
 
