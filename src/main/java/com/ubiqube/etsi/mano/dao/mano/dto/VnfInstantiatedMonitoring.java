@@ -18,21 +18,14 @@ package com.ubiqube.etsi.mano.dao.mano.dto;
 
 import java.util.UUID;
 
+import lombok.Data;
+
+@Data
 public class VnfInstantiatedMonitoring extends VnfInstantiatedBase {
 
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
-	private UUID id = null;
-
-	@Override
-	public UUID getId() {
-		return id;
-	}
-
-	@Override
-	public void setId(final UUID id) {
-		this.id = id;
-	}
+	private UUID id;
 
 }

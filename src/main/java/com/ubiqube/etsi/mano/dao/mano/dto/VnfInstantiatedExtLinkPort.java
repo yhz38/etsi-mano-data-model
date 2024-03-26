@@ -16,19 +16,17 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 public class VnfInstantiatedExtLinkPort extends VnfInstantiatedBase {
 
 	private static final long serialVersionUID = 1L;
 
-	private String extCpInstanceId = null;
+	private String extCpInstanceId;
 }

@@ -73,7 +73,7 @@ public class NsdPackage implements PackageBase, Auditable {
 	/**
 	 * Used for overriding the nsdId.
 	 */
-	private String OverwriteDescId;
+	private String overwriteDescId;
 
 	private String nsdName;
 

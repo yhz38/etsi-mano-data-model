@@ -24,16 +24,14 @@ import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.mano.CpProtocolDataEntity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Getter
-@Setter
+@Data
 public class VnfInstantiatedCompute extends VnfInstantiatedBase {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;

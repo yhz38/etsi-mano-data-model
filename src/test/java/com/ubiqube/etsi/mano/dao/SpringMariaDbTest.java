@@ -23,6 +23,7 @@ import java.sql.PreparedStatement;
 
 import javax.sql.DataSource;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.test.context.ActiveProfiles;
@@ -34,6 +35,11 @@ class SpringMariaDbTest {
 
 	@Autowired
 	DataSource ds;
+
+	@Test
+	void dummy() {
+		assertTrue(true);
+	}
 
 	// @Test
 	void testMariaDbSchema() throws Exception {

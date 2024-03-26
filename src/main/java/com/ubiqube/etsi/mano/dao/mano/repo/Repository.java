@@ -16,6 +16,7 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.repo;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
@@ -28,7 +29,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Repository {
+public class Repository implements Serializable {
+	/** Serial. */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

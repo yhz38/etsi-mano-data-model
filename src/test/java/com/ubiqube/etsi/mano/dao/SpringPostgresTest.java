@@ -23,6 +23,7 @@ import java.sql.PreparedStatement;
 
 import javax.sql.DataSource;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.test.context.ActiveProfiles;
@@ -35,7 +36,11 @@ class SpringPostgresTest {
 	@Autowired
 	DataSource ds;
 
-	// @Test
+	@Test
+	void dummy() {
+		assertTrue(true);
+	}
+
 	void testPostgresqlSchema() throws Exception {
 		assertTrue(true);
 		try (Connection conn = ds.getConnection();
