@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -66,6 +68,7 @@ public class ExtVirtualLinkDataEntity implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<ExtLinkPortDataEntity> extLinkPorts;
 
+	@JsonIgnore
 	@ManyToOne
 	private VnfInstance vnfInstance;
 
