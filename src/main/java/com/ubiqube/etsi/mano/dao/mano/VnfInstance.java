@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.utils.ToStringUtil;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -79,4 +80,9 @@ public class VnfInstance extends Instance {
 	 */
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<VersionDependency> versionDependency;
+
+	@Override
+	public String toString() {
+		return ToStringUtil.toString(this);
+	}
 }

@@ -40,6 +40,7 @@ import com.ubiqube.etsi.mano.dao.mano.nsd.upd.UpdateRequest;
 import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsHeal;
 import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsScale;
 import com.ubiqube.etsi.mano.dao.mano.nslcm.scale.NsScaleInfo;
+import com.ubiqube.etsi.mano.utils.ToStringUtil;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.CascadeType;
@@ -252,4 +253,9 @@ public class BlueprintParameters implements Serializable {
 	 */
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<VirtualCpInfo> virtualCpInfo = new ArrayList<>();
+
+	@Override
+	public String toString() {
+		return ToStringUtil.toString(this);
+	}
 }
