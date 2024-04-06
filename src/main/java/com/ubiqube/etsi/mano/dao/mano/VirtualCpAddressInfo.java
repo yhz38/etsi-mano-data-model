@@ -21,7 +21,6 @@ import java.io.Serializable;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-
 import lombok.Data;
 
 @Data
@@ -34,4 +33,6 @@ public class VirtualCpAddressInfo implements Serializable {
 	private IpType type;
 
 	private String loadBalancerIp;
+
+	private String addressPoolName;
 }

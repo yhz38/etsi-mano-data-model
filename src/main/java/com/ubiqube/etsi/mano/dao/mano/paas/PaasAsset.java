@@ -12,43 +12,42 @@
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with this program.  If not, see https://www.gnu.org/licenses/.
+ *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.ubiqube.etsi.mano.dao.mano.nslcm.scale;
+package com.ubiqube.etsi.mano.dao.mano.paas;
 
 import java.io.Serializable;
 import java.util.UUID;
+
+import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- *
- * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
- *
- */
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
 @Getter
 @Setter
-@Entity
-public class NsScaleInfo implements Serializable {
-	/** Serial. */
+public class PaasAsset implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
-	private String nsScalingAspectId;
+	private String paasServiceType;
 
-	private String nsScaleLevelId;
+	private String paasServiceId;
 
-	private String vnfdId;
+	private String paasServiceVersion;
+
+	private String paasServiceRequestId;
+
+	@OneToOne
+	private VimConnectionInformation paasServiceHandle;
+
 }

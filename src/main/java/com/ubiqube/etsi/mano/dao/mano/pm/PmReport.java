@@ -17,16 +17,16 @@
 package com.ubiqube.etsi.mano.dao.mano.pm;
 
 import java.io.Serializable;
+import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
+import com.ubiqube.etsi.mano.utils.ToStringUtil;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import com.ubiqube.etsi.mano.utils.ToStringUtil;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,7 +53,9 @@ public class PmReport implements Serializable {
 	/**
 	 * The size of the report file in bytes, if known.
 	 */
-	long fileSize;
+	private long fileSize;
+
+	private URI href;
 
 	@Override
 	public String toString() {

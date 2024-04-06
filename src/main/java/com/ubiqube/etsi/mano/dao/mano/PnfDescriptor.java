@@ -18,10 +18,13 @@ package com.ubiqube.etsi.mano.dao.mano;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.base.BaseEntity;
+import com.ubiqube.etsi.mano.dao.mano.nfvo.ArchiveSecurityOptionEnumType;
 import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
 import jakarta.persistence.ElementCollection;
@@ -33,6 +36,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -55,18 +59,29 @@ public class PnfDescriptor implements BaseEntity, Serializable {
 
 	private String pnfdName;
 
-	private String pnfdersion;
+	private String pnfdVersion;
 
 	private String pnfdProvider;
 
 	private String pnfdInvariantId;
+
+	private String pnfdExtInvariantId;
+
+	private ArchiveSecurityOptionEnumType archiveSecurityOption;
+
+	private String signingCertificate;
+
+	@OneToMany
+	private Set<AdditionalArtifact> artifacts = new LinkedHashSet<>();
+
 	@Enumerated(EnumType.STRING)
 	private OnboardingStateType pnfdOnboardingState;
 	@Embedded
 	private FailureDetails onboardingFailureDetails;
 	@Enumerated(EnumType.STRING)
 	private UsageStateEnum pnfdUsageState;
-	private String userDefinedData;
+	@ElementCollection
+	private Map<String, String> userDefinedData;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> virtualLink;
 

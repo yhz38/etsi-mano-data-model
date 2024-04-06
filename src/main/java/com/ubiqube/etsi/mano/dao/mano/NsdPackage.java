@@ -83,6 +83,8 @@ public class NsdPackage implements PackageBase, Auditable {
 
 	private String nsdInvariantId;
 
+	private String nsdExtInvariantId;
+
 	private String instantiationLevel;
 
 	private int minNumberOfInstance;

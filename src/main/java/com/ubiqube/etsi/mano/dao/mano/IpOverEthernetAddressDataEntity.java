@@ -97,4 +97,43 @@ public class IpOverEthernetAddressDataEntity implements Serializable {
 		}
 	}
 
+	/**
+	 * Specifies the encapsulation type for the traffics coming in and out of the
+	 * trunk subport. Permitted values: - VLAN: the subport uses VLAN as
+	 * encapsulation type. - INHERIT: the subport gets its segmentation type from
+	 * the network it’s connected to. This attribute may be present for CP instances
+	 * that represent subports in a trunk and shall be absent otherwise. If this
+	 * attribute is not present for a subport CP instance, default value VLAN shall
+	 * be used.
+	 */
+	public enum SegmentationTypeEnum {
+		VLAN("VLAN"),
+
+		INHERIT("INHERIT");
+
+		private final String value;
+
+		SegmentationTypeEnum(final String value) {
+			this.value = value;
+		}
+
+		@Override
+		@JsonValue
+		public String toString() {
+			return String.valueOf(value);
+		}
+
+		@JsonCreator
+		public static SegmentationTypeEnum fromValue(final String text) {
+			for (final SegmentationTypeEnum b : SegmentationTypeEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			return null;
+		}
+	}
+
+	private SegmentationTypeEnum segmentationType = null;
+
 }

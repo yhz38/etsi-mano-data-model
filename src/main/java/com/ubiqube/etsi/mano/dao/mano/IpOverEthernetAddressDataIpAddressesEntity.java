@@ -60,4 +60,6 @@ public class IpOverEthernetAddressDataIpAddressesEntity implements Serializable 
 
 	private String subnetId;
 
+	@ElementCollection
+	private List<String> fixedAddresses;
 }

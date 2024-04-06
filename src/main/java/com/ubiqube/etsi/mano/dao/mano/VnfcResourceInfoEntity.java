@@ -97,4 +97,6 @@ public class VnfcResourceInfoEntity implements Serializable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Map<String, String> metadata;
 
+	private String certificateContentId;
+
 }

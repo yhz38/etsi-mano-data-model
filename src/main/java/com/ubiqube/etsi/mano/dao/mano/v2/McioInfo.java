@@ -26,7 +26,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import lombok.Data;
 
 @Data
@@ -59,4 +58,5 @@ public class McioInfo implements Serializable {
 	@ElementCollection
 	private Map<String, String> additionalInfo;
 
+	private String certificateContentId;
 }

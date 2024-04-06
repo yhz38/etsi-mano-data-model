@@ -20,14 +20,13 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.FetchType;
 import jakarta.validation.Valid;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -69,4 +68,8 @@ public class GrantVimAssetsEntity implements Serializable {
 	@Fetch(FetchMode.SELECT)
 	private Set<VimSnapshotResources> snapshotResources;
 
+	@Valid
+	@ElementCollection(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.SELECT)
+	private Set<StorageAsset> storageAssets;
 }

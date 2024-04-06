@@ -17,11 +17,14 @@
 package com.ubiqube.etsi.mano.dao.mano;
 
 import java.io.Serializable;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.base.BaseEntity;
 import com.ubiqube.etsi.mano.dao.mano.grant.SnapshotResourceDefinitionEntity;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -103,7 +106,8 @@ public class GrantInformationExt implements BaseEntity, Serializable {
 	 * <li>- If type="STORAGE": VirtualStorageDesc</li>
 	 * </ul>
 	 */
-	private String resourceTemplateId;
+	@ElementCollection
+	private Set<String> resourceTemplateId;
 
 	/**
 	 * From GrantInfo.
@@ -212,6 +216,12 @@ public class GrantInformationExt implements BaseEntity, Serializable {
 	 * @since 4.3.1
 	 */
 	private String containerNamespace;
+
+	/**
+	 * @since 4.5.1
+	 */
+	@ElementCollection
+	private Map<String, String> mcioConstraints;
 
 	@Override
 	public String toString() {

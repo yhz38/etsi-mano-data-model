@@ -19,7 +19,11 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.io.Serializable;
 
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Embeddable
 public class PkgChecksum implements Serializable {
 	/** Serial. */
@@ -29,20 +33,10 @@ public class PkgChecksum implements Serializable {
 
 	private String hash;
 
-	public String getAlgorithm() {
-		return algorithm;
-	}
+	private String md5;
 
-	public void setAlgorithm(final String algorithm) {
-		this.algorithm = algorithm;
-	}
+	private String sha256;
 
-	public String getHash() {
-		return hash;
-	}
-
-	public void setHash(final String hash) {
-		this.hash = hash;
-	}
+	private String sha512;
 
 }

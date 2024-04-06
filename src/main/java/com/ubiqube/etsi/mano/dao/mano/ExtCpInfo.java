@@ -127,4 +127,6 @@ public class ExtCpInfo implements Serializable {
 	@ElementCollection
 	private List<String> netAttDefResourceId;
 
+	private String certificateContentId;
+
 }

@@ -14,41 +14,41 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see https://www.gnu.org/licenses/.
  */
-package com.ubiqube.etsi.mano.dao.mano.nslcm.scale;
+package com.ubiqube.etsi.mano.dao.mano.v2.net;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.vim.IpPool;
+
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- *
- * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
- *
- */
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
 @Getter
 @Setter
-@Entity
-public class NsScaleInfo implements Serializable {
-	/** Serial. */
+public class SubNetwork implements Serializable {
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
+	private String resourceId;
+	private String name;
+	private boolean enableDHCP;
+	private String networkId;
+	private String tenantId;
+	@ElementCollection
+	private List<String> dnsNames;
+	@OneToMany
+	private List<IpPool> pools;
+	private String gateway;
+	private String cidr;
 
-	private String nsScalingAspectId;
-
-	private String nsScaleLevelId;
-
-	private String vnfdId;
 }

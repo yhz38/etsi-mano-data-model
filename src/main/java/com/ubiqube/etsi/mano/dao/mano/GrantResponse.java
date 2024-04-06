@@ -30,6 +30,7 @@ import com.ubiqube.etsi.mano.dao.base.BaseEntity;
 import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
 import com.ubiqube.etsi.mano.dao.mano.grant.PlacementConstraint;
 import com.ubiqube.etsi.mano.dao.mano.grant.VimConstraint;
+import com.ubiqube.etsi.mano.dao.mano.paas.PaasAsset;
 import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
 import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 import com.ubiqube.etsi.mano.utils.ToStringUtil;
@@ -316,6 +317,9 @@ public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
 	 * Flag to say if grants have been, inspected.
 	 */
 	private Boolean available;
+
+	@OneToMany
+	private Set<PaasAsset> paasAssets;
 
 	public void addExtManagedVl(final ExtManagedVirtualLinkDataEntity extVl) {
 		if (null == extManagedVirtualLinks) {
