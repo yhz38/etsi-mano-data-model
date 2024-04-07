@@ -17,9 +17,11 @@
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.dto.VnfcInfoModificationsEntity;
 import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
 
 import jakarta.persistence.ElementCollection;
@@ -27,6 +29,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.Valid;
 import lombok.Data;
 
@@ -67,4 +70,6 @@ public class VnfInfoModifications implements Serializable {
 
 	private String vnfdVersion;
 
+	@OneToMany
+	private List<VnfcInfoModificationsEntity> vnfcInfoModifications;
 }

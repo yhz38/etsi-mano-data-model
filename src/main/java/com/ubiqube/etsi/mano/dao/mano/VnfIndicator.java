@@ -66,6 +66,8 @@ public class VnfIndicator implements ToscaEntity, Auditable {
 	@Embedded
 	private Audit audit;
 
+	private String vnfInstanceId;
+
 	@ElementCollection(targetClass = String.class)
 	private List<String> targets;
 

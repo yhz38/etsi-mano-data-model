@@ -18,7 +18,13 @@ package com.ubiqube.etsi.mano.dao.mano.dto;
 
 import java.io.Serializable;
 import java.util.Map;
+import java.util.UUID;
 
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,13 +33,16 @@ import lombok.Setter;
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
+@Entity
 @Getter
 @Setter
 public class VnfcInfoModificationsEntity implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID id;
 
-	private String id = null;
-
-	private Map<String, String> vnfcConfigurableProperties = null;
+	@ElementCollection
+	private Map<String, String> vnfcConfigurableProperties;
 }

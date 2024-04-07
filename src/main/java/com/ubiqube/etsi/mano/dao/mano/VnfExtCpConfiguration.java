@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -51,4 +52,8 @@ public class VnfExtCpConfiguration implements Serializable {
 	@OneToOne
 	private VnfExtCpDataEntity vnfExtCpDataEntity;
 
+	@ElementCollection
+	private List<String> netAttDefResourceId;
+
+	private String parentCpConfigId;
 }

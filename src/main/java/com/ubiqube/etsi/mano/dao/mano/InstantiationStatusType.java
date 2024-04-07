@@ -16,6 +16,13 @@
  */
 package com.ubiqube.etsi.mano.dao.mano;
 
+import com.ubiqube.etsi.mano.dao.mano.v2.OperationStatusType;
+
+/**
+ * @author olivier
+ * @deprecated Use {@link OperationStatusType}
+ */
+@Deprecated(forRemoval = true)
 public enum InstantiationStatusType {
 	NOT_STARTED("STARTED"),
 	STARTED("STARTED"),
@@ -36,7 +43,7 @@ public enum InstantiationStatusType {
 
 	ROLLED_BACK("ROLLED_BACK");
 
-	private String value;
+	private final String value;
 
 	InstantiationStatusType(final String value) {
 		this.value = value;
