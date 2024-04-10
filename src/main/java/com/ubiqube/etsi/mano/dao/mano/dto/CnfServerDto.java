@@ -19,12 +19,16 @@ package com.ubiqube.etsi.mano.dao.mano.dto;
 import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.CnfInformations;
 
 import jakarta.validation.Valid;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
+@Getter
+@Setter
 public class CnfServerDto {
 	@Valid
 	private CnfInformations info;
