@@ -41,4 +41,5 @@ public class VnfInstantiatedVirtualLink extends VnfInstantiatedBase {
 
 	private List<String> vnfLinkPortIds;
 
+	private String virtualLinkDescId;
 }
