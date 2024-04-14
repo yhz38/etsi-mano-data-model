@@ -30,6 +30,7 @@ import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
 import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -85,6 +86,9 @@ public abstract class AbstractBlueprint<U extends Task, V extends Instance> impl
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private Map<String, ConnectionInformation> mciopConnectionInfo;
+
+	@ElementCollection
+	private Map<String, String> additionalParams;
 
 	@TenantId
 	private String tenantId;
