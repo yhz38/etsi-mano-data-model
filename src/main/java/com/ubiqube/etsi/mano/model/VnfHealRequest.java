@@ -45,8 +45,10 @@ public class VnfHealRequest {
 	@JsonProperty("additionalParams")
 	private Map<String, String> additionalParams;
 
+	private String healScript;
+
 	public static VnfHealRequest of(final String cause) {
-		return new VnfHealRequest(cause, Map.of());
+		return new VnfHealRequest(cause, Map.of(), null);
 	}
 
 	@Override
