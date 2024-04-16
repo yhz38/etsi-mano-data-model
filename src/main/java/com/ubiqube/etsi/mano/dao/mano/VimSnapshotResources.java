@@ -19,7 +19,6 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.io.Serializable;
 
 import jakarta.persistence.Embeddable;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +31,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class VimSnapshotResources implements Serializable {
+	/** Serial. */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Identifier of the VIM connection to access the software image referenced in

@@ -51,4 +51,7 @@ public class NsScaleInfo implements Serializable {
 	private String nsScaleLevelId;
 
 	private String vnfdId;
+	// ???
+	private String scaleToLevel;
+
 }
