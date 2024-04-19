@@ -60,7 +60,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @EntityListeners(AuditListener.class)
-public class GrantResponse implements BaseEntity, Auditable, GrantInterface {
+public class GrantResponse implements BaseEntity, Auditable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
