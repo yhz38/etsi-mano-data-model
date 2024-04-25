@@ -49,8 +49,10 @@ public class ExtVirtualLinkDataEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	// extVirtualLinkId on Sol005 ?
 	private UUID id;
 
+	// VimId on SOL005
 	private String vimConnectionId;
 
 	private String resourceProviderId;
