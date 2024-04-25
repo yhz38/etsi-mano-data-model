@@ -17,6 +17,7 @@
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -72,4 +73,7 @@ public class VnfInfoModifications implements Serializable {
 
 	@OneToMany
 	private List<VnfcInfoModificationsEntity> vnfcInfoModifications;
+
+	@ElementCollection
+	private List<String> vnfcInfoModificationsDeleteIds = new ArrayList<>();
 }
