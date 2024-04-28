@@ -28,6 +28,7 @@ import com.ubiqube.etsi.mano.dao.mano.nfvo.NsArchiveArtifactInfo;
 import com.ubiqube.etsi.mano.dao.mano.nsd.VnffgDescriptor;
 import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsVirtualLink;
 import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
+import com.ubiqube.etsi.mano.utils.ToStringUtil;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
@@ -165,5 +166,10 @@ public class NsdPackage implements PackageBase, Auditable {
 	@Override
 	public UsageStateEnum getUsageState() {
 		return this.nsdUsageState;
+	}
+
+	@Override
+	public String toString() {
+		return ToStringUtil.toString(this);
 	}
 }
