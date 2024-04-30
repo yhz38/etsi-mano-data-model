@@ -37,7 +37,7 @@ import lombok.Data;
  *
  */
 @Data
-@Entity
+@Entity(name = "ip_over_eth_addr_ip_addr")
 public class IpOverEthernetAddressDataIpAddressesEntity implements Serializable {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
