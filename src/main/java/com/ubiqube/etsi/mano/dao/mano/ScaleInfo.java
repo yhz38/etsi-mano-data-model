@@ -44,9 +44,7 @@ public class ScaleInfo implements Serializable {
 	// 3.3.1
 	private String vnfdId;
 
-	private int scaleLevel;
-	// ???
-	private String scaleToLevel;
+	private Integer scaleLevel;
 
 	public ScaleInfo() {
 		// Nothing.
