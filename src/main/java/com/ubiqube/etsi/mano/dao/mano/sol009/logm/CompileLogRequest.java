@@ -12,37 +12,13 @@
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with this program.  If not, see https://www.gnu.org/licenses/.
+ *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 package com.ubiqube.etsi.mano.dao.mano.sol009.logm;
 
-import java.util.UUID;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
-@Entity
-public class LoggingJobCriteria {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
-
-	@Enumerated(EnumType.STRING)
-	private LoggingTypeEnum loggingType;
-
-	@OneToOne
-	private LoggingJobMessagesCriteria messagesLogDetail;
-
-	private LoggingJobServicesCriteria servicesLogDetail;
-
-	@OneToOne
-	private LoggingJobSystemCriteria systemLogDetail;
-
+public class CompileLogRequest {
+	private ManoManagedObjectReference objectInstanceId;
 }
