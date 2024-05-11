@@ -37,6 +37,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -58,7 +59,7 @@ public class VnfVl implements ToscaEntity, Auditable {
 	private UUID id;
 
 	private String toscaId;
-
+	@NotNull
 	private String toscaName;
 
 	private String state;

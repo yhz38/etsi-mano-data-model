@@ -35,6 +35,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -56,6 +57,7 @@ public class VnfExtCp extends ConnectionPoint implements Serializable, ToscaEnti
 
 	private String toscaId;
 
+	@NotNull
 	private String toscaName;
 
 	private String state;
@@ -63,6 +65,7 @@ public class VnfExtCp extends ConnectionPoint implements Serializable, ToscaEnti
 	@Nullable
 	private String externalVirtualLink;
 
+	@NotNull
 	private String internalVirtualLink;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -44,8 +44,15 @@ public class NsCpProtocolData implements BaseEntity, Auditable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.datatypes.nfv.CpProtocolData
+	 */
 	private String associatedLayerProtocol;
 
+	/**
+	 * Used in
+	 * com.ubiqube.parser.tosca.objects.tosca.datatypes.nfv.CpProtocolData#AddressData
+	 */
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<NsAddressData> addressData;
 

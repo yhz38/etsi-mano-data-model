@@ -43,7 +43,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * A part of NSD.
+ * A part of NSD. Missing
+ * com.ubiqube.parser.tosca.objects.tosca.nodes.nfv.Cp#role
  *
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
@@ -66,17 +67,32 @@ public class NsSap implements ToscaEntity, Auditable {
 
 	private String description;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.nodes.nfv.Sap
+	 */
 	private String externalVirtualLink;
-
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.nodes.nfv.Sap
+	 */
 	private String internalVirtualLink;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.nodes.nfv.Cp
+	 */
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> layerProtocols;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.nodes.nfv.Cp As
+	 * CpProtocolData.
+	 */
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn
 	private Set<NsCpProtocolData> protocol;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.nodes.nfv.Cp
+	 */
 	private boolean trunkMode;
 
 	@ManyToMany(cascade = CascadeType.ALL)

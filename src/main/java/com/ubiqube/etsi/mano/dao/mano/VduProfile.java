@@ -19,13 +19,15 @@ package com.ubiqube.etsi.mano.dao.mano;
 import java.io.Serializable;
 import java.util.Set;
 
+import com.ubiqube.etsi.mano.dao.mano.pkg.NfviMaintenanceInfo;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,4 +50,6 @@ public class VduProfile implements Serializable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> affinityOrAntiAffinityGroupId;
 
+	@OneToOne
+	private NfviMaintenanceInfo nfviMaintenanceInfo;
 }

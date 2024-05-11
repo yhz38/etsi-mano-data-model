@@ -53,8 +53,14 @@ public class VnfIndicator implements ToscaEntity, Auditable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Map<String, TriggerDefinition> triggers;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.policies.nfv.VnfIndicator.
+	 */
 	private String source;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.policies.nfv.VnfIndicator.
+	 */
 	private String name;
 
 	private String toscaName;
@@ -70,6 +76,9 @@ public class VnfIndicator implements ToscaEntity, Auditable {
 
 	private Double value;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.policies.nfv.VnfIndicator.
+	 */
 	@ElementCollection(targetClass = String.class)
 	private List<String> targets;
 

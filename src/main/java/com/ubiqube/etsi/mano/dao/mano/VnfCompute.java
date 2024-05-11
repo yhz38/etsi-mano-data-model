@@ -66,6 +66,7 @@ public class VnfCompute implements ImageServiceAware, ToscaEntity, Auditable {
 
 	private String toscaId;
 
+	@NotNull
 	private String toscaName;
 
 	private String state;

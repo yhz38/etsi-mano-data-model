@@ -45,15 +45,32 @@ public class NsAddressData implements BaseEntity, Auditable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
+	/**
+	 * Used in com.ubiqube.parser.tosca.objects.tosca.datatypes.nfv.AddressData
+	 */
 	private String addressType;
 
-	/** L2. */
+	/**
+	 * L2. Used in
+	 * com.ubiqube.parser.tosca.objects.tosca.datatypes.nfv.AddressData#L2AddressData
+	 */
 	private Boolean macAddressAssignment;
 
-	/** L3. */
+	/**
+	 * L3. Used in L3AddressData
+	 */
 	private Integer numberOfIpAddress;
+	/**
+	 * L3AddressData#ipAddressAssignment
+	 */
 	private Boolean ipAddressAssignment;
+	/**
+	 * L3AddressData
+	 */
 	private String ipAddressType;
+	/**
+	 * L3AddressData
+	 */
 	private Boolean floatingIpActivated;
 
 	@Embedded
