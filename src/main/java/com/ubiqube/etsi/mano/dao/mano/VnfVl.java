@@ -66,10 +66,6 @@ public class VnfVl implements ToscaEntity, Auditable {
 
 	private String description;
 
-	private int initialBrRoot;
-
-	private int initialBrLeaf;
-
 	@Embedded
 	private Audit audit;
 
