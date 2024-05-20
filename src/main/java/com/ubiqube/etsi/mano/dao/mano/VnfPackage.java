@@ -31,6 +31,7 @@ import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.mano.common.ListKeyPair;
 import com.ubiqube.etsi.mano.dao.mano.config.Servers;
+import com.ubiqube.etsi.mano.dao.mano.pkg.ExternalArtifactsAccessConfig;
 import com.ubiqube.etsi.mano.dao.mano.pkg.OsContainer;
 import com.ubiqube.etsi.mano.dao.mano.pkg.OsContainerDeployableUnit;
 import com.ubiqube.etsi.mano.dao.mano.pkg.PackageSecurityOptionType;
@@ -304,6 +305,9 @@ public class VnfPackage implements PackageBase, Auditable {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Repository> repositories;
+
+	@Embedded
+	private ExternalArtifactsAccessConfig externalArtifactsAccessConfig;
 
 	@Transient
 	private List<AttributeAssignements> overloadedAttribute;
