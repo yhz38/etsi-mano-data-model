@@ -16,9 +16,12 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.dto;
 
+import java.util.UUID;
+
 import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.CnfInformations;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,6 +33,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CnfServerDto {
+	@NotNull
+	private UUID id;
 	@Valid
 	private CnfInformations info;
 }
