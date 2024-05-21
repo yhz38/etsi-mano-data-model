@@ -41,6 +41,7 @@ public class OsContainerDeployableTask extends VnfTask {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
+	private String vnfInstId;
 	/**
 	 * The Openstack magnum template ID.
 	 */
@@ -67,6 +68,7 @@ public class OsContainerDeployableTask extends VnfTask {
 		t.setKeypair(keypair);
 		t.setNetwork(network);
 		t.setOsContainerDeployableUnit(osContainerDeployableUnit);
+		t.setVnfInstId(vnfInstId);
 		return t;
 	}
 

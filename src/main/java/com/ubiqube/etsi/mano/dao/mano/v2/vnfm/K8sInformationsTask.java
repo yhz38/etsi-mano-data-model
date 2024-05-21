@@ -37,10 +37,13 @@ public class K8sInformationsTask extends VnfTask {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
+	private String vnfInstId;
+
 	@Override
 	public VnfTask copy() {
 		final K8sInformationsTask t = new K8sInformationsTask();
 		super.copy(t);
+		t.setVnfInstId(vnfInstId);
 		return t;
 	}
 
