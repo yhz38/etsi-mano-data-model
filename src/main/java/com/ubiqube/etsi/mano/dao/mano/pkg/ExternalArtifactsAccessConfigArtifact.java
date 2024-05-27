@@ -45,4 +45,6 @@ public class ExternalArtifactsAccessConfigArtifact implements Serializable {
 	private AuthType authType;
 
 	private ParamsOauth2ClientCredentials paramsOauth2ClientCredentials;
+
+	private ParamsBasicCredentials paramsBasicCredentials;
 }
