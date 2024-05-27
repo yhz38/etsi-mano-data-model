@@ -27,7 +27,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ToscaRepository extends Repository {
+	private static final long serialVersionUID = 1L;
 	private String protocol;
+	// basic_auth, X-Auth-Token, oauth2, identifier (ssh)
 	private String tokenType = "password";
 	private String token;
 	private String username;
