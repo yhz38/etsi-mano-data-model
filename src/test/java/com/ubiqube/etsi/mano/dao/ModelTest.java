@@ -68,12 +68,14 @@ class ModelTest {
 		final Map<String, Set<String>> subtype = reflections.getStore().get("SubTypes");
 		subtype.forEach((x, y) -> {
 			handle(x);
-			y.forEach(z -> handle(z));
+			y.forEach(ModelTest::handle);
 		});
 	}
 
 	private static void handle(final String x) {
-		if (x.startsWith("java.lang") || x.startsWith("com.ubiqube.etsi.mano.repository")
+		if (x.startsWith("java.lang")
+				|| x.startsWith("java.net")
+				|| x.startsWith("com.ubiqube.etsi.mano.repository")
 				|| x.startsWith("com.ubiqube.etsi.mano.service.rest.")) {
 			return;
 		}
@@ -85,7 +87,7 @@ class ModelTest {
 	}
 
 	private static void realHandle(final String x) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, IntrospectionException {
-		if (x.startsWith("com.ubiqube.etsi.mano.utils") || x.endsWith("Builder") || x.endsWith("Test") || !x.startsWith("com.ubiqube.etsi.mano")) {
+		if (x.startsWith("com.ubiqube.etsi.mano.utils") || x.endsWith("Builder") || x.endsWith("BuilderImpl") || x.endsWith("Test") || !x.startsWith("com.ubiqube.etsi.mano")) {
 			return;
 		}
 		final Class<?> clazz = Class.forName(x);
