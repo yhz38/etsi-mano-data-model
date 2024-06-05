@@ -54,6 +54,7 @@ class TestHashCodeEquals {
 		classInfoStrategy.addExcludedField(ExtVirtualLinkDataEntity.class, "vnfInstance");
 		classInfoStrategy.addExcludedField(CpProtocolDataEntity.class, "vnfExtCpConfiguration");
 		classInfoStrategy.addExcludedField(VnfExtCpConfiguration.class, "vnfExtCpDataEntity");
+		classInfoStrategy.addExcludedField(VirtualLinkInfo.class, "vimConnectionInformation");
 		mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 	}
 
