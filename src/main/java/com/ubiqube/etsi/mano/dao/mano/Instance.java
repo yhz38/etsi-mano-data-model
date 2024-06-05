@@ -105,7 +105,7 @@ public class Instance implements BaseEntity, Auditable {
 	 */
 	// 3.3.1 it's a map
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH })
-	private Set<VimConnectionInformation> vimConnectionInfo = new LinkedHashSet<>();
+	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnectionInfo = new LinkedHashSet<>();
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private Map<String, ConnectionInformation> cirConnectionInfo;

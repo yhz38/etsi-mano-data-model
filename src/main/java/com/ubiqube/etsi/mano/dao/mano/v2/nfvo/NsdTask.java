@@ -19,6 +19,8 @@ package com.ubiqube.etsi.mano.dao.mano.v2.nfvo;
 import java.util.Set;
 import java.util.UUID;
 
+import com.ubiqube.etsi.mano.dao.mano.AccessInfo;
+import com.ubiqube.etsi.mano.dao.mano.InterfaceInfo;
 import com.ubiqube.etsi.mano.dao.mano.NsdPackageNsdPackage;
 import com.ubiqube.etsi.mano.dao.mano.ResourceTypeEnum;
 import com.ubiqube.etsi.mano.dao.mano.VnfExtCp;
@@ -65,7 +67,7 @@ public class NsdTask extends NsTask {
 	private Set<VnfExtCp> extCps;
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-	private Set<VimConnectionInformation> vimConnectionInformations;
+	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnectionInformations;
 
 	private String localizationLanguage;
 

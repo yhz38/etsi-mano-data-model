@@ -148,7 +148,11 @@ public class GrantResponse implements BaseEntity, Auditable {
 
 	@Valid
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-	private Set<VimConnectionInformation> vimConnections = new LinkedHashSet<>();
+	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections = new LinkedHashSet<>();
+
+	@Valid
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> cismConnections = new LinkedHashSet<>();
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
 	private Map<String, ConnectionInformation> cirConnectionInfo = new HashMap<>();

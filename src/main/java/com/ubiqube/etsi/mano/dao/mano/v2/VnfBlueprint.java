@@ -24,10 +24,12 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
+import com.ubiqube.etsi.mano.dao.mano.AccessInfo;
 import com.ubiqube.etsi.mano.dao.mano.BlueZoneGroupInformation;
 import com.ubiqube.etsi.mano.dao.mano.ExtManagedVirtualLinkDataEntity;
 import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkDataEntity;
 import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkInfoEntity;
+import com.ubiqube.etsi.mano.dao.mano.InterfaceInfo;
 import com.ubiqube.etsi.mano.dao.mano.OperateChanges;
 import com.ubiqube.etsi.mano.dao.mano.VnfInstance;
 import com.ubiqube.etsi.mano.dao.mano.ZoneInfoEntity;
@@ -84,7 +86,7 @@ public class VnfBlueprint extends AbstractBlueprint<VnfTask, VnfInstance> {
 
 	@Valid
 	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
-	private Set<VimConnectionInformation> vimConnections;
+	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<ZoneInfoEntity> zones;
