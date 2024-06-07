@@ -91,6 +91,8 @@ public class NsBlueprint extends AbstractBlueprint<NsTask, NsdInstance> {
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections;
+	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
+	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> cismConnections;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<BlueZoneGroupInformation> zoneGroups;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

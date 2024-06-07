@@ -88,6 +88,10 @@ public class VnfBlueprint extends AbstractBlueprint<VnfTask, VnfInstance> {
 	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
 	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections;
 
+	@Valid
+	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
+	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> cismConnections;
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<ZoneInfoEntity> zones;
 

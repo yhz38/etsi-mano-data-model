@@ -107,6 +107,9 @@ public class Instance implements BaseEntity, Auditable {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH })
 	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnectionInfo = new LinkedHashSet<>();
 
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH })
+	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> cismConnectionInfo = new LinkedHashSet<>();
+
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	private Map<String, ConnectionInformation> cirConnectionInfo;
 
@@ -191,4 +194,10 @@ public class Instance implements BaseEntity, Auditable {
 		vimConnectionInfo.add(x);
 	}
 
+	public void addCismConnectionInfo(final VimConnectionInformation x) {
+		if (null == this.cismConnectionInfo) {
+			this.cismConnectionInfo = new LinkedHashSet<>();
+		}
+		cismConnectionInfo.add(x);
+	}
 }

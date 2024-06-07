@@ -61,7 +61,9 @@ public interface Blueprint<U extends Task, V extends Instance> extends BaseEntit
 
 	// Below VimBluePrint
 	void setVimConnections(Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections);
+
 	//
+	void setCismConnections(Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections);
 
 	void setZoneGroups(Set<BlueZoneGroupInformation> mapAsSet);
 
@@ -72,6 +74,8 @@ public interface Blueprint<U extends Task, V extends Instance> extends BaseEntit
 	void addExtManagedVirtualLinks(Set<ExtManagedVirtualLinkDataEntity> extManagedVirtualLinks);
 
 	Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> getVimConnections();
+
+	Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> getCismConnections();
 
 	V getInstance();
 
