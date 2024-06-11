@@ -50,6 +50,6 @@ public class VduProfile implements Serializable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> affinityOrAntiAffinityGroupId;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private NfviMaintenanceInfo nfviMaintenanceInfo;
 }
