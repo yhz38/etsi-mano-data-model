@@ -19,6 +19,7 @@ package com.ubiqube.etsi.mano.dao.mano.cnf.capi;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.ubiqube.etsi.mano.dao.mano.vim.vnfi.CnfInformations;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -52,4 +53,7 @@ public class CapiServer {
 	@Column(length = 5000)
 	@JsonProperty("client-key-data")
 	private String clientKeyData;
+
+	@JsonProperty("cnf-info")
+	private CnfInformations cnfInfo;
 }
