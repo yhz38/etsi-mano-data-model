@@ -28,7 +28,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class VimConnectionInfoDto {
+public class VimConnectionRegistrationDto {
 
 	private String vimId;
 
