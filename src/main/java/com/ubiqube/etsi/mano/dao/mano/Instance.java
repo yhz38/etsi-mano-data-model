@@ -16,6 +16,7 @@
  */
 package com.ubiqube.etsi.mano.dao.mano;
 
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -199,5 +200,12 @@ public class Instance implements BaseEntity, Auditable {
 			this.cismConnectionInfo = new LinkedHashSet<>();
 		}
 		cismConnectionInfo.add(x);
+	}
+
+	public void addCirConnection(final ConnectionInformation v) {
+		if (null == this.cirConnectionInfo) {
+			this.cirConnectionInfo = new LinkedHashMap<>();
+		}
+		cirConnectionInfo.put(v.getName(), v);
 	}
 }
