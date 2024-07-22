@@ -17,6 +17,7 @@
 package com.ubiqube.etsi.mano.dao.mano.v2;
 
 import java.time.OffsetDateTime;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -82,10 +83,10 @@ public abstract class AbstractBlueprint<U extends Task, V extends Instance> impl
 	private CancelModeTypeEnum cancelMode;
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-	private Map<String, ConnectionInformation> cirConnectionInfo;
+	private Map<String, ConnectionInformation> cirConnectionInfo = new LinkedHashMap<>();
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-	private Map<String, ConnectionInformation> mciopConnectionInfo;
+	private Map<String, ConnectionInformation> mciopConnectionInfo = new LinkedHashMap<>();
 
 	@ElementCollection
 	private Map<String, String> additionalParams;
