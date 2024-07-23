@@ -28,7 +28,6 @@ import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.base.BaseEntity;
-import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
 import com.ubiqube.etsi.mano.dao.mano.pm.PmJob;
 import com.ubiqube.etsi.mano.dao.mano.v2.BlueprintParameters;
 import com.ubiqube.etsi.mano.dao.mano.v2.VnfBlueprint;
@@ -106,16 +105,16 @@ public class Instance implements BaseEntity, Auditable {
 	 */
 	// 3.3.1 it's a map
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH })
-	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnectionInfo = new LinkedHashSet<>();
+	private Set<VimConnectionInformation> vimConnectionInfo = new LinkedHashSet<>();
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH })
-	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> cismConnectionInfo = new LinkedHashSet<>();
+	private Set<VimConnectionInformation> cismConnectionInfo = new LinkedHashSet<>();
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-	private Map<String, ConnectionInformation> cirConnectionInfo;
+	private Map<String, VimConnectionInformation> cirConnectionInfo;
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-	private Map<String, ConnectionInformation> mciopRepositoryInfo;
+	private Map<String, VimConnectionInformation> mciopRepositoryInfo;
 	/**
 	 * Additional VNF-specific attributes that provide the current values of the
 	 * configurable properties of the VNF instance. These attributes represent
@@ -202,10 +201,10 @@ public class Instance implements BaseEntity, Auditable {
 		cismConnectionInfo.add(x);
 	}
 
-	public void addCirConnection(final ConnectionInformation v) {
+	public void addCirConnection(final VimConnectionInformation v) {
 		if (null == this.cirConnectionInfo) {
 			this.cirConnectionInfo = new LinkedHashMap<>();
 		}
-		cirConnectionInfo.put(v.getName(), v);
+		cirConnectionInfo.put(v.getVimId(), v);
 	}
 }

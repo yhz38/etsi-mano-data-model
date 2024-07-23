@@ -21,12 +21,10 @@ import java.util.Map;
 import java.util.Set;
 
 import com.ubiqube.etsi.mano.dao.base.BaseEntity;
-import com.ubiqube.etsi.mano.dao.mano.AccessInfo;
 import com.ubiqube.etsi.mano.dao.mano.BlueZoneGroupInformation;
 import com.ubiqube.etsi.mano.dao.mano.ExtManagedVirtualLinkDataEntity;
 import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkDataEntity;
 import com.ubiqube.etsi.mano.dao.mano.Instance;
-import com.ubiqube.etsi.mano.dao.mano.InterfaceInfo;
 import com.ubiqube.etsi.mano.dao.mano.ZoneInfoEntity;
 import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
 import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
@@ -60,10 +58,10 @@ public interface Blueprint<U extends Task, V extends Instance> extends BaseEntit
 	void setStateEnteredTime(OffsetDateTime date);
 
 	// Below VimBluePrint
-	void setVimConnections(Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections);
+	void setVimConnections(Set<VimConnectionInformation> vimConnections);
 
 	//
-	void setCismConnections(Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections);
+	void setCismConnections(Set<VimConnectionInformation> vimConnections);
 
 	void setZoneGroups(Set<BlueZoneGroupInformation> mapAsSet);
 
@@ -73,15 +71,17 @@ public interface Blueprint<U extends Task, V extends Instance> extends BaseEntit
 
 	void addExtManagedVirtualLinks(Set<ExtManagedVirtualLinkDataEntity> extManagedVirtualLinks);
 
-	Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> getVimConnections();
+	Set<VimConnectionInformation> getVimConnections();
 
-	Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> getCismConnections();
+	Set<VimConnectionInformation> getCismConnections();
 
 	V getInstance();
 
-	void addVimConnection(VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo> vimConnection);
+	void addVimConnection(VimConnectionInformation vimConnection);
 
 	void addExtVirtualLinks(Set<ExtVirtualLinkDataEntity> extVirtualLinks);
+
+	void addCirConnection(VimConnectionInformation vimConnection);
 
 	Map<String, ConnectionInformation> getCirConnectionInfo();
 

@@ -19,9 +19,7 @@ package com.ubiqube.etsi.mano.model;
 import java.util.List;
 import java.util.Set;
 
-import com.ubiqube.etsi.mano.dao.mano.AccessInfo;
 import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkDataEntity;
-import com.ubiqube.etsi.mano.dao.mano.InterfaceInfo;
 import com.ubiqube.etsi.mano.dao.mano.vim.VimConnectionInformation;
 
 import lombok.Getter;
@@ -39,7 +37,7 @@ public class VnfInstantiate {
 
 	private String instantiationLevelId;
 
-	private List<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnectionInfo;
+	private List<VimConnectionInformation> vimConnectionInfo;
 
 	private List<ExternalManagedVirtualLink> extManagedVirtualLinks;
 

@@ -22,11 +22,9 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
-import com.ubiqube.etsi.mano.dao.mano.AccessInfo;
 import com.ubiqube.etsi.mano.dao.mano.BlueZoneGroupInformation;
 import com.ubiqube.etsi.mano.dao.mano.ExtManagedVirtualLinkDataEntity;
 import com.ubiqube.etsi.mano.dao.mano.ExtVirtualLinkDataEntity;
-import com.ubiqube.etsi.mano.dao.mano.InterfaceInfo;
 import com.ubiqube.etsi.mano.dao.mano.NsdInstance;
 import com.ubiqube.etsi.mano.dao.mano.ZoneInfoEntity;
 import com.ubiqube.etsi.mano.dao.mano.v2.AbstractBlueprint;
@@ -90,9 +88,11 @@ public class NsBlueprint extends AbstractBlueprint<NsTask, NsdInstance> {
 	private Set<String> warnings;
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> vimConnections;
+	private Set<VimConnectionInformation> vimConnections;
 	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
-	private Set<VimConnectionInformation<? extends InterfaceInfo, ? extends AccessInfo>> cismConnections;
+	private Set<VimConnectionInformation> cismConnections;
+	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
+	private Set<VimConnectionInformation> cirConnections;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<BlueZoneGroupInformation> zoneGroups;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -146,5 +146,13 @@ public class NsBlueprint extends AbstractBlueprint<NsTask, NsdInstance> {
 	@Override
 	public void addExtVirtualLinks(final Set<ExtVirtualLinkDataEntity> extVirtualLinks) {
 		// Nothing.
+	}
+
+	@Override
+	public void addCirConnection(final VimConnectionInformation vimConnection) {
+		if (null == cirConnections) {
+			this.cirConnections = new LinkedHashSet<>();
+		}
+		this.cirConnections.add(vimConnection);
 	}
 }
