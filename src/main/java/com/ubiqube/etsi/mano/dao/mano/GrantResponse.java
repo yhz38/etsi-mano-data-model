@@ -27,6 +27,7 @@ import com.ubiqube.etsi.mano.dao.audit.Audit;
 import com.ubiqube.etsi.mano.dao.audit.AuditListener;
 import com.ubiqube.etsi.mano.dao.audit.Auditable;
 import com.ubiqube.etsi.mano.dao.base.BaseEntity;
+import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionInformation;
 import com.ubiqube.etsi.mano.dao.mano.grant.PlacementConstraint;
 import com.ubiqube.etsi.mano.dao.mano.grant.VimConstraint;
 import com.ubiqube.etsi.mano.dao.mano.paas.PaasAsset;
@@ -154,10 +155,10 @@ public class GrantResponse implements BaseEntity, Auditable {
 	private Set<VimConnectionInformation> cismConnections = new LinkedHashSet<>();
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-	private Map<String, VimConnectionInformation> cirConnectionInfo = new HashMap<>();
+	private Map<String, ConnectionInformation> cirConnectionInfo = new HashMap<>();
 
 	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-	private Map<String, VimConnectionInformation> mciopRepositoryInfo = new HashMap<>();
+	private Map<String, ConnectionInformation> mciopRepositoryInfo = new HashMap<>();
 
 	/**
 	 * From Grant.
