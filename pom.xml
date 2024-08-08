@@ -47,7 +47,6 @@
 		<dependency>
 			<groupId>com.ubiqube.mano.event</groupId>
 			<artifactId>event-api</artifactId>
-			<version>4.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -130,27 +129,22 @@
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-utils</artifactId>
-			<version>4.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-base</artifactId>
-			<version>4.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-audit</artifactId>
-			<version>4.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-vim</artifactId>
-			<version>4.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ubiqube.mano</groupId>
 			<artifactId>mano-db-rfc7807</artifactId>
-			<version>4.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
