@@ -10,7 +10,7 @@
 	<name>mano-model</name>
 	<description>ETSI MANO Database Model.</description>
 	<scm>
-		<developerConnection>scm:git:https://github.com/openmsa/etsi-mano-data-model.git</developerConnection>
+		<developerConnection>scm:git:ssh://git@github.com/openmsa/etsi-mano-data-model.git</developerConnection>
 	  <tag>mano-model-3.2.0</tag>
   </scm>
 	<distributionManagement>
