@@ -57,7 +57,7 @@ public class CapiServer {
 	@JsonProperty("client-key-data")
 	private String clientKeyData;
 
-	private PlanStatusType status = PlanStatusType.STARTED;
+	private PlanStatusType serverStatus = PlanStatusType.STARTED;
 	@Nullable
 	private FailureDetails error;
 	@Version
