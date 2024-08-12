@@ -19,7 +19,10 @@ package com.ubiqube.etsi.mano.dao.mano.cnf.capi;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.ubiqube.etsi.mano.dao.mano.vim.PlanStatusType;
+import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -53,4 +56,7 @@ public class CapiServer {
 	@JsonProperty("client-key-data")
 	private String clientKeyData;
 
+	private PlanStatusType status = PlanStatusType.STARTED;
+	@Nullable
+	private FailureDetails error;
 }
