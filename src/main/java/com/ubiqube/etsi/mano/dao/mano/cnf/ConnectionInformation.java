@@ -78,7 +78,7 @@ public class ConnectionInformation implements Auditable {
 	private boolean ignoreSsl;
 
 	@Enumerated(EnumType.STRING)
-	private PlanStatusType serverStatus;
+	private PlanStatusType serverStatus = PlanStatusType.STARTED;
 
 	private FailureDetails failureDetails;
 

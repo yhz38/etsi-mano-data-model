@@ -17,13 +17,10 @@
 package com.ubiqube.etsi.mano.dao.mano.dto;
 
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionType;
 import com.ubiqube.etsi.mano.dao.mano.common.GeoPoint;
-import com.ubiqube.etsi.mano.dao.mano.vim.PlanStatusType;
-import com.ubiqube.etsi.mano.dao.rfc7807.FailureDetails;
 import com.ubiqube.etsi.mano.service.auth.model.AuthentificationInformations;
 
 import lombok.Getter;
@@ -45,12 +42,6 @@ public class ConnectionInformationDto {
 	private String url;
 
 	private boolean ignoreSsl;
-
-	private PlanStatusType serverStatus;
-
-	private FailureDetails failureDetails;
-
-	private Set<String> capabilities;
 
 	private GeoPoint geoloc;
 
