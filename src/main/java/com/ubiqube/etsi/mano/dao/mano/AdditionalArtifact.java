@@ -27,6 +27,8 @@ import com.ubiqube.etsi.mano.utils.ToStringUtil;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -62,6 +64,7 @@ public class AdditionalArtifact implements Serializable {
 	// 2.8.1
 	private String artifactURI;
 	// 2.7.1
+	@Enumerated(EnumType.STRING)
 	private ArtifactClassificationType artifactClassification;
 
 	@ElementCollection(fetch = FetchType.EAGER)
