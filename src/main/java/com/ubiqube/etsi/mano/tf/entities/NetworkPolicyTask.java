@@ -23,6 +23,7 @@ import com.ubiqube.etsi.mano.dao.mano.v2.nfvo.NsTask;
 import com.ubiqube.etsi.mano.dao.mano.vim.vnffg.Classifier;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,6 +40,7 @@ public class NetworkPolicyTask extends NsTask {
 	/** Serial. */
 	private static final long serialVersionUID = 1L;
 
+	@OneToOne
 	private Classifier classifier;
 
 	/**
