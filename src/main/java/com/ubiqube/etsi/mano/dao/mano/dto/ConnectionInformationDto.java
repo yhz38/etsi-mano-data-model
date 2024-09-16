@@ -16,30 +16,34 @@
  */
 package com.ubiqube.etsi.mano.dao.mano.dto;
 
+import java.net.URL;
 import java.util.Map;
-import java.util.UUID;
 
 import com.ubiqube.etsi.mano.dao.mano.cnf.ConnectionType;
 import com.ubiqube.etsi.mano.dao.mano.common.GeoPoint;
 import com.ubiqube.etsi.mano.service.auth.model.AuthentificationInformations;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class ConnectionInformationDto {
-	private UUID id;
 
+	@NotNull
 	private String name;
 
+	@NotNull
 	private ConnectionType connType;
 
+	@NotNull
 	private AuthentificationInformations authentification;
 
 	private Map<String, String> extra;
 
-	private String url;
+	@NotNull
+	private URL url;
 
 	private boolean ignoreSsl;
 
