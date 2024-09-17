@@ -22,8 +22,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
-        globally_quoted_identifiers: true
-        keyword_auto_quoting_enabled: true
+        "[globally_quoted_identifiers]": true
+        "[keyword_auto_quoting_enabled]": true
   output:
     ansi:
       enabled: always
