@@ -7,7 +7,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MariaDBDialect
-        globally_quoted_identifiers: true
+        "[globally_quoted_identifiers]": true
   output:
     ansi:
       enabled: always
