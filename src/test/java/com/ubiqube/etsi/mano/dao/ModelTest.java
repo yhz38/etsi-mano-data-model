@@ -25,7 +25,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
@@ -205,6 +207,13 @@ class ModelTest {
 		}
 		if (ret.isAssignableFrom(URI.class)) {
 			return URI.create("http://localhost/");
+		}
+		if (ret.isAssignableFrom(URL.class)) {
+			try {
+				return URI.create("http://localhost/").toURL();
+			} catch (final MalformedURLException e) {
+				throw new RuntimeException(e);
+			}
 		}
 		if (ret.isAssignableFrom(NsTask.class)) {
 			return new NetworkPolicyTask();
