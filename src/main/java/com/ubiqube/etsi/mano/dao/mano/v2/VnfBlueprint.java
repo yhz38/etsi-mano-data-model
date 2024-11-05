@@ -78,27 +78,27 @@ public class VnfBlueprint extends AbstractBlueprint<VnfTask, VnfInstance> {
 	@JoinColumn
 	private VnfInstance vnfInstance;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn
 	private Set<VnfTask> tasks = new HashSet<>();
 
 	@Valid
-	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.LAZY)
 	private Set<VimConnectionInformation> vimConnections;
 
 	@Valid
-	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.LAZY)
 	private Set<VimConnectionInformation> cismConnections;
 
 	@Valid
-	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = { CascadeType.DETACH }, fetch = FetchType.LAZY)
 	private Set<VimConnectionInformation> cirConnections;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<ZoneInfoEntity> zones;
 
 	@Valid
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<BlueZoneGroupInformation> zoneGroups;
 
 	private String grantsRequestId;
@@ -118,20 +118,20 @@ public class VnfBlueprint extends AbstractBlueprint<VnfTask, VnfInstance> {
 	@Transient
 	private transient VnfLcmResourceChanges resourceChanges;
 
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private ChangeExtVnfConnRequest changeExtVnfConnRequest;
 	// 3.3.1
 	private String vnfSnapshotInfoId;
 	// 3.3.1
 	private VnfPkgChange modificationsTriggeredByVnfPkgChange;
 	// 3.5.1
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<VnfLcmCoordination> lcmCoordinations;
 	// 3.5.1
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<RejectedLcmCoordination> rejectedLcmCoordinations;
 	// 3.5.1
-	@ElementCollection(fetch = FetchType.EAGER)
+	@ElementCollection(fetch = FetchType.LAZY)
 	private Set<String> warnings;
 
 	private String healCause;
