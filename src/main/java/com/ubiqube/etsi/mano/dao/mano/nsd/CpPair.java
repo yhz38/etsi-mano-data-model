@@ -19,14 +19,12 @@ package com.ubiqube.etsi.mano.dao.mano.nsd;
 import java.io.Serializable;
 import java.util.UUID;
 
-import jakarta.persistence.Embeddable;
+import com.ubiqube.etsi.mano.utils.ToStringUtil;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import com.ubiqube.etsi.mano.utils.ToStringUtil;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,7 +33,6 @@ import lombok.Setter;
  * @author Olivier Vignaud {@literal <ovi@ubiqube.com>}
  *
  */
-@Embeddable
 @Entity
 @Getter
 @Setter
